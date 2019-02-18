@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^logo$
+^README\.Rmd$
+^README-.*\.png$
+^\.travis\.yml$
+^revdep$
