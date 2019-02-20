@@ -8,8 +8,9 @@
 #' @param real.MASE optional, matrix of MASE values for all algorithms for test data
 #' @param log if log transformation is used to convert Y values to real line
 #' @importFrom magrittr %>%
+#' @importFrom stats median
 #' @export
-ebmsr_prediction <- function(model, feature.df, model.names, real.MASE=FALSE, log=TRUE){
+predict_fformpp <- function(model, feature.df, model.names, real.MASE, log=TRUE){
 
   # Preparation of the testing file
   x.testing <- feature.df %>% as.matrix()
@@ -25,20 +26,20 @@ ebmsr_prediction <- function(model, feature.df, model.names, real.MASE=FALSE, lo
 
   ## OUT.IF.testing <- matrix(NA, nTest, length(RdataFiles))
   nTest <- nrow(x.testing)
-  nDim <- dim(model$OUT.FITTED[["Params"]][["coefficients"]])[2]
-  nIter <- dim(model$OUT.FITTED[["Params"]][["coefficients"]])[3]
-  nCross <- dim(model$OUT.FITTED[["Params"]][["coefficients"]])[4]
+  nDim <- dim(model$out.fitted[["Params"]][["coefficients"]])[2]
+  nIter <- dim(model$out.fitted[["Params"]][["coefficients"]])[3]
+  nCross <- dim(model$out.fitted[["Params"]][["coefficients"]])[4]
   Y.pred <- array(NA, c(nTest,nDim, nIter))
 
   for(iCross in 1:nCross)
   {
     for(i in 1:nIter)
     {
-      knots.ilst <- knots_mat2list(model$OUT.FITTED[["Params"]][["knots"]][, , i, iCross], splineArgs)
+      knots.ilst <- knots_mat2list(model$out.fitted[["Params"]][["knots"]][, , i, iCross], model$spline.args)
       ## knots.s.mat[(1+q.s*(i-1)):(i*q.s), ] <- knots.ilst[["thinplate.s"]]
       ## knots.a.mat[(1+q.a1*(i-1)):(i*q.a1), ] <- matrix(knots.ilst[["thinplate.a"]], q.a1, 2)
-      X.i <- d.matrix(x.testing, knots.ilst, model$splineArgs)
-      B.i <- matrix(model$OUT.FITTED[["Params"]][["coefficients"]][, , i, iCross], ,nDim)
+      X.i <- d.matrix(x.testing, knots.ilst, model$spline.args)
+      B.i <- matrix(model$out.fitted[["Params"]][["coefficients"]][, , i, iCross], ,nDim)
       Y.pred[, , i] <- X.i %*% B.i # Transformed scale,  but should be OK here.
     }
   }
@@ -46,7 +47,8 @@ ebmsr_prediction <- function(model, feature.df, model.names, real.MASE=FALSE, lo
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
 
-  if(real.MASE==FALSE){return(pred.mean)
+  if(real.MASE=="NA"){
+    return(pred.mean)
     } else { # if you have the matrix that calculated pedictions from all models
 
   ## Comparison with real MASE
@@ -65,4 +67,4 @@ ebmsr_prediction <- function(model, feature.df, model.names, real.MASE=FALSE, lo
     }
 }
 #' @examples
-#' predictions <- ebmsr_prediction(fformpp, feamat, c("arima","ets","rw","rwd", "theta", "nn"), real.MASE=accmat, log=FALSE)
+#' predictions <- predict_fformpp(fformpp, feamat, c("arima","ets","rw","rwd", "theta", "nn"), real.MASE=accmat, log=FALSE)

@@ -21,7 +21,7 @@
 #' @param prior.knots this could be n, log(n) or 1 # to set priors for knots
 #' @return returns a list contanining the fitted model and arguments for splines
 #' @export
-fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
+fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
                         fix.s=0, fix.a=0, fix.shrinkage, fix.covariance=0,
                         fix.coefficients=0, n.iter=100,
                         knot.moving.algorithm="Random-Walk",
@@ -355,7 +355,7 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
 #'feamat <- as.matrix(cal_features(yearly_m1, database="M1", h=6, highfreq=FALSE))
 #'acccal <- fcast_accuracy(yearly_m1, models= c("arima","ets","rw","rwd", "theta", "nn"), database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = FALSE)
 #'accmat <- as.matrix(acccal$accuracy)
-#'fformpp <- fit_surfreg(feamat, accmat, sknots=2, aknots=2,
+#'fformpp <- fit_fformpp(feamat, accmat, sknots=2, aknots=2,
 #' fix.s=0, fix.a=0, fix.shrinkage=0, fix.covariance=0,
 #' fix.coefficients=0, n.iter=100,
 #' knot.moving.algorithm="Random-Walk",
