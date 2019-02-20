@@ -39,7 +39,7 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
 
   ## standardizing the data
   data <- flutils::StdData(feamat, method = "norm-0-1")
-  x <- data[["data"]]
+  x <<- data[["data"]]
 
   ## no. of observations
   n <- dim(Y)[1]
@@ -266,7 +266,7 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
   crossvalid.struc <- flutils::set.crossvalid(nObs = n, crossValidArgs = cross.validation)
 
   ## No. of total runs
-  nCross <- length(crossvalid.struc$training)
+  nCross <<- length(crossvalid.struc$training)
 
   ## No. of training obs. in each data subset.
   nTraining <- unlist(lapply(crossvalid.struc$training, length))
@@ -347,3 +347,18 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
 
 }
 
+#'@examples
+#'require(Mcomp)
+#'require(seer)
+#'data(M1)
+#'yearly_m1 <- subset(M1, "yearly")
+#'feamat <- as.matrix(cal_features(yearly_m1, database="M1", h=6, highfreq=FALSE))
+#'acccal <- fcast_accuracy(yearly_m1, models= c("arima","ets","rw","rwd", "theta", "nn"), database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = FALSE)
+#'accmat <- as.matrix(acccal$accuracy)
+#'fformpp <- fit_surfreg(feamat, accmat, sknots=2, aknots=2,
+#' fix.s=0, fix.a=0, fix.shrinkage=0, fix.covariance=0,
+#' fix.coefficients=0, n.iter=100,
+#' knot.moving.algorithm="Random-Walk",
+#' ptype=c("identity", "identity", "identity"),
+#' prior.knots=25)
+#'
