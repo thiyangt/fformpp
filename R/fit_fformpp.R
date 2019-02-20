@@ -343,7 +343,7 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
   ## Save outputs to files
   ##----------------------------------------------------------------------------------------
 
-  return(list(OUT.FITTED, splineArgs))
+  return(list(out.fitted=OUT.FITTED, spline.args=splineArgs))
 
 }
 
