@@ -25,10 +25,13 @@ Imports:
         MASS,
         Matrix,
         mvtnorm,
-        tidyverse
+        tidyverse,
+        seer,
+        movingknots,
+        flutils
 Remotes: robjhyndman/tsfeatures
          thiyangt/seer
          feng-li/movingknots
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 LazyDate: true
