@@ -263,7 +263,7 @@ fit_surfreg <- function(feamat, accmat, sknots=2, aknots=2,
   ## The training($training) and testing($testing) structure.
   ## If no cross-validation, $training is also $testing.
   ## If full run is required, the last list in $training and $testing is for a full run.
-  crossvalid.struc <- flutils::set.crossvalid(nObs = n, crossValidArgs = cross.validation)
+  crossvalid.struc <<- flutils::set.crossvalid(nObs = n, crossValidArgs = cross.validation)
 
   ## No. of total runs
   nCross <<- length(crossvalid.struc$training)
