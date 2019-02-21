@@ -2,9 +2,7 @@
 % Please edit documentation in R/fit_fformpp.R
 \name{fit_fformpp}
 \alias{fit_fformpp}
-\title{Function to fit Efficient Bayesian Surface Regression Models.
-This function is written based on the example codes in movingknots
-package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.}
+\title{Function to fit Efficient Bayesian Surface Regression Models.}
 \usage{
 fit_fformpp(feamat, accmat, sknots = 2, aknots = 2, fix.s = 0,
   fix.a = 0, fix.shrinkage, fix.covariance = 0, fix.coefficients = 0,
@@ -46,7 +44,6 @@ code use Random-Walk}
 returns a list contanining the fitted model and arguments for splines
 }
 \description{
-Function to fit Efficient Bayesian Surface Regression Models.
 This function is written based on the example codes in movingknots
 package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.
 }

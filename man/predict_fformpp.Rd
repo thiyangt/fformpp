@@ -20,6 +20,6 @@ pf accmat argument in fit_ebmsr}
 \item{log}{if log transformation is used to convert Y values to real line}
 }
 \description{
-Function to predict forecast error measures from the
-the fitted fformpp
+This function is written based on the example codes in movingknots
+package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.
 }

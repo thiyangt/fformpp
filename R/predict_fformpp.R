@@ -1,6 +1,9 @@
 #' Function to predict forecast error measures from the
 #' the fitted fformpp
 #'
+#' This function is written based on the example codes in movingknots
+#' package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.
+#'
 #' @param model fitted fformpp models, output of the function fit_fformpp
 #' @param feature.df feature matrix of test data
 #' @param model.names vector of names of the forecast algorithms, similar to the order
@@ -16,7 +19,7 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE, log=TRUE)
   x.testing <- feature.df %>% as.matrix()
   colnames(x.testing) <- NULL
 
-  x.testing <- StdData(x.testing, method = "norm-0-1")[["data"]]
+  x.testing <- flutils::StdData(x.testing, method = "norm-0-1")[["data"]]
   ## Which cross validation fold used
   iCross <- 1
 
