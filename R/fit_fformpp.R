@@ -356,9 +356,9 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
 #'acccal <- fcast_accuracy(yearly_m1, models= c("arima","ets","rw","rwd", "theta", "nn"), database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = FALSE)
 #'accmat <- as.matrix(acccal$accuracy)
 #'fformpp <- fit_fformpp(feamat, accmat, sknots=2, aknots=2,
-#' fix.s=0, fix.a=0, fix.shrinkage=0, fix.covariance=0,
+#' fix.s=0, fix.a=0, fix.shrinkage=1:25, fix.covariance=0,
 #' fix.coefficients=0, n.iter=100,
 #' knot.moving.algorithm="Random-Walk",
 #' ptype=c("identity", "identity", "identity"),
-#' prior.knots=25)
+#' prior.knots=181)
 #'

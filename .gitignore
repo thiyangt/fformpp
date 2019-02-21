@@ -2,3 +2,13 @@
 .Rhistory
 .RData
 .Ruserdata
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^logo$
+^cran-comments\.md$
+^\.travis\.yml$
+^revdep$
+^README\.Rmd$
+^README-.*\.png$
+test/
