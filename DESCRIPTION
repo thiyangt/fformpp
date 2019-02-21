@@ -28,9 +28,10 @@ Imports:
         seer,
         movingknots,
         flutils
-Remotes: robjhyndman/tsfeatures
-         thiyangt/seer
-         feng-li/movingknots
+Remotes: robjhyndman/tsfeatures,
+         thiyangt/seer,
+         feng-li/movingknots,
+         feng-li/flutils
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 LazyDate: true
