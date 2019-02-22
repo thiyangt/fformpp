@@ -39,7 +39,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   track.MCMC = TRUE
 
   ## standardizing the data
-  data <- flutils::StdData(feamat, method = "norm-0-1")
+  data <- StdData(feamat, method = "norm-0-1")
   x <<- data[["data"]]
 
   ## no. of observations
