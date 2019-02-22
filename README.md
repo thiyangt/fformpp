@@ -10,6 +10,8 @@ fformpp
 Installation
 ------------
 
+The linked package [flutils](https://github.com/feng-li/flutils) and [movingknots](https://github.com/feng-li/movingknots) should be installed prior to the installation of fformpp.
+
 ``` r
 # install.packages("devtools")
 devtools::install_github("thiyangt/fformpp")
