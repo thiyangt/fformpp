@@ -13,7 +13,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-predict_fformpp <- function(model, feature.df, model.names, real.MASE, log=TRUE){
+predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=TRUE){
 
   # Preparation of the testing file
   x.testing <- feature.df %>% as.matrix()
@@ -50,7 +50,7 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE, log=TRUE)
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
 
-  if(real.MASE=="NA"){
+  if(is.null(real.MASE)){
     return(pred.mean)
     } else { # if you have the matrix that calculated pedictions from all models
 

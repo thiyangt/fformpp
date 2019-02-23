@@ -5,7 +5,8 @@
 \title{Function to predict forecast error measures from the
 the fitted fformpp}
 \usage{
-predict_fformpp(model, feature.df, model.names, real.MASE, log = TRUE)
+predict_fformpp(model, feature.df, model.names, real.MASE = NULL,
+  log = TRUE)
 }
 \arguments{
 \item{model}{fitted fformpp models, output of the function fit_fformpp}
