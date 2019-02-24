@@ -7,7 +7,7 @@
 #' @param model fitted fformpp models, output of the function fit_fformpp
 #' @param feature.df feature matrix of test data
 #' @param model.names vector of names of the forecast algorithms, similar to the order
-#' pf accmat argument in fit_ebmsr
+#' of accmat argument in fit_ebmsr
 #' @param real.MASE optional, matrix of MASE values for all algorithms for test data
 #' @param log if log transformation is used to convert Y values to real line
 #' @importFrom magrittr %>%
@@ -71,7 +71,7 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=
                                       c(median(MASEOpt), apply(real.MASE, 2, median)))
   dimnames(summary_prediction_results) <- list(c("mean", "median"), c("our_method", colnames(real.MASE)))
 
-  return(list(predictions=pred.mean,minmase=MASEOpt, summary=summary_prediction_results))
+  return(list(predictions=pred.mean, models=fm, minmase=MASEOpt, summary=summary_prediction_results))
     }
 }
 #' @examples

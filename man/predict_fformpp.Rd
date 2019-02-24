@@ -14,7 +14,7 @@ predict_fformpp(model, feature.df, model.names, real.MASE = NULL,
 \item{feature.df}{feature matrix of test data}
 
 \item{model.names}{vector of names of the forecast algorithms, similar to the order
-pf accmat argument in fit_ebmsr}
+of accmat argument in fit_ebmsr}
 
 \item{real.MASE}{optional, matrix of MASE values for all algorithms for test data}
 
