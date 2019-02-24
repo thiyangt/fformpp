@@ -55,11 +55,16 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=
     } else { # if you have the matrix that calculated pedictions from all models
 
   ## Comparison with real MASE
-  fm <- apply(pred.mean, 1, which.min)
+  #fm <- apply(pred.mean, 1, which.min)
+  fm <- apply(pred.mean, 1, function(x) which(x == min(x, na.rm = TRUE))) ## this can track multiple minimum values
   MASEOpt <- rep(NA, length(fm))
   for (i in 1: length(fm))
   {
-    MASEOpt[i] <- real.MASE[i, fm[i]]
+    if (length(fm[[i]])==1){
+    MASEOpt[i] <- real.MASE[i, fm[[i]]]
+    } else {
+    MASEOpt[i] <- mean(real.MASE[i, fm[[i]]])
+    }
   }
 
   summary_prediction_results <- rbind(c(mean(MASEOpt), apply(real.MASE, 2, mean)),
