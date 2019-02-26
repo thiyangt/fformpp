@@ -29,3 +29,5 @@ The linked packages [flutils](https://github.com/feng-li/flutils) and [movingkno
 devtools::install_github("thiyangt/fformpp")
 library(fformpp)
 ```
+
+## Usage
