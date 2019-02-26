@@ -9,7 +9,7 @@
 features.df
 }
 \description{
-Six time series features calculated on M1 competition data
+features calculated on M3 competition data
 }
 \examples{
 data(features.df)

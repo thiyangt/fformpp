@@ -16,10 +16,8 @@
 }}
 \usage{
 forecast.error
-
-forecast.error
 }
 \description{
-fitted model from fit_fformpp
+forecast.error
 }
 \keyword{datasets}

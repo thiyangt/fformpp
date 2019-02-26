@@ -54,17 +54,27 @@ forecast.error <- as.matrix(forecast.error)
 **Fit surface regression model**
 
 ```r
-## This will take time.
+## This will take time. This model is saved in the package.
 n <- dim(forecast.error)[1]
 p <- dim(forecast.error)[2]
 
 fformpp.model <- fit_fformpp(feamat=features_mat, accmat=forecast.error, 
                              sknots=2, aknots=2,
-                            fix.s=0, fix.a=0, fix.shrinkage=1:p, fix.covariance=0,
+                            fix.s=0, fix.a=0, fix.shrinkage=1:p,            fix.covariance=0,
                             fix.coefficients=0, n.iter=100,
                             knot.moving.algorithm="Random-Walk",
                             ptype=c("identity", "identity", "identity"),
                             prior.knots=n)
+
+
 ```
 
 **Predict forecast error on new data**
+
+```{r}
+data("fformpp.model")
+predict_fformpp(fformpp.model, )
+
+```
+
+

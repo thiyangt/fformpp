@@ -2,7 +2,7 @@
 NULL
 #'features.df
 #'
-#' @description Six time series features calculated on M1 competition data
+#' @description features calculated on M3 competition data
 #' @format A data frame with 645 rows and 25 variables
 #' @examples
 #' data(features.df)
@@ -27,4 +27,14 @@ NULL
 #' fformpp.model
 #' @description fitted model from fit_fformpp
 #' @format list containing fitted model and spline arguments
-"forecast.error"
+"fformpp.model"
+
+#' features.df.m1
+#' @description features calculated on M1 competition data
+#' @format dataframe features calculated on M1 competition data
+"features.df.m1"
+
+#' forecast.error.m1
+#' @description forecast error calculated on M1 data
+#' @format dataframe features calculated on M1 competition data
+"forecast.error.m1"
