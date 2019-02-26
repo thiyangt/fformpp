@@ -57,7 +57,7 @@ forecast.error <- as.matrix(forecast.error)
 **Fit surface regression model**
 
 ```r
-## This will take time. This model is saved in the package.
+## This will take time. This model is saved in the package. THe fitted model is  saved into the package for easy references.
 n <- dim(forecast.error)[1]
 p <- dim(forecast.error)[2]
 

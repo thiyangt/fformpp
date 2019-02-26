@@ -2,6 +2,7 @@
 
 export(fit_fformpp)
 export(glogit)
+export(individual_forecast)
 export(predict_fformpp)
 export(transform_features)
 importFrom(magrittr,"%>%")
