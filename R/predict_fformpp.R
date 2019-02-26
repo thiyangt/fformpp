@@ -8,12 +8,10 @@
 #' @param feature.df feature matrix of test data
 #' @param model.names vector of names of the forecast algorithms, similar to the order
 #' of accmat argument in fit_ebmsr
-#' @param real.MASE optional, matrix of MASE values for all algorithms for test data
-#' @param log if log transformation is used to convert Y values to real line
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=TRUE){
+predict_fformpp <- function(model, feature.df, model.names){
 
   # Preparation of the testing file
   x.testing <- feature.df %>% as.matrix()
@@ -50,36 +48,9 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
   colnames(real.MASE) <- model.names
-  if(is.null(real.MASE)){
-    return(pred.mean)
-    } else { # if you have the matrix that calculated pedictions from all models
 
-  ## Comparison with real MASE
-  #fm <- apply(pred.mean, 1, which.min)
-  fm <- apply(pred.mean, 1, function(x) which(x == min(x, na.rm = TRUE))) ## this can track multiple minimum values
-  MASEOpt <- rep(NA, length(fm))
-  for (i in 1: length(fm))
-  {
-    if (length(fm[[i]])==1){
-    MASEOpt[i] <- real.MASE[i, fm[[i]]]
-    } else {
-    min_model <- colnames(pred.mean)[fm[[i]]]
-    comb_fcast_components <- matrix(NA, ncol=length(min_model))
-    for(j in 1:length(min_model)){
-    comb_fcast_componet[,j] <- forecast_list[min_model[j]][,i]
-    }
-    comb_fcast <- rowMeans(comb_fcast_components)
-    real <- real.MASE[i, fm[[i]]]
-    MASEOpt[i] <- accmat(real, comb_fcast)
-    }
-  }
+  return(pred.mean)
 
-  summary_prediction_results <- rbind(c(mean(MASEOpt), apply(real.MASE, 2, mean)),
-                                      c(median(MASEOpt), apply(real.MASE, 2, median)))
-  dimnames(summary_prediction_results) <- list(c("mean", "median"), c("our_method", colnames(real.MASE)))
-
-  return(list(predictions=pred.mean, models=fm, minmase=MASEOpt, summary=summary_prediction_results))
-    }
 }
 #' @examples
-#' predictions <- predict_fformpp(fformpp, feamat, c("arima","ets","rw","rwd", "theta", "nn"), real.MASE=accmat, log=FALSE)
+#' predictions <- predict_fformpp(fformpp, feamat, c("arima","ets","rw","rwd", "theta", "nn"))
