@@ -2,8 +2,7 @@
 % Please edit documentation in R/individual_forecast.R
 \name{individual_forecast}
 \alias{individual_forecast}
-\title{Function to predict forecast error measures from the
-the fitted fformpp}
+\title{Function to generate forecasts from minimum error}
 \usage{
 individual_forecast(predicted, accmat = NULL, real.error = NULL,
   tslist = TRUE, forecast_list = NULL, h = NULL)
@@ -22,6 +21,5 @@ individual_forecast(predicted, accmat = NULL, real.error = NULL,
 \item{h}{length of forecast horizon}
 }
 \description{
-This function is written based on the example codes in movingknots
-package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.
+Function to generate forecasts from minimum error
 }

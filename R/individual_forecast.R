@@ -1,8 +1,5 @@
-#' Function to predict forecast error measures from the
-#' the fitted fformpp
+#' Function to generate forecasts from minimum error
 #'
-#' This function is written based on the example codes in movingknots
-#' package by Dr. Feng Li. Please see https://github.com/feng-li/movingknots for more details.
 #' @param predicted predicted forecast errors from predict_fformpp
 #' @param real.error optional, matrix of MASE values for all algorithms for test data
 #' @param accmat function to compute forecast accuracy
