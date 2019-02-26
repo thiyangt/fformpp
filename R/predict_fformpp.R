@@ -48,7 +48,7 @@ predict_fformpp <- function(model, feature.df, model.names, log=TRUE){
   pred.mean <- apply(Y.pred, c(1, 2), mean)
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
-  colnames(real.MASE) <- model.names
+  colnames(pred.mean) <- model.names
 
   return(pred.mean)
 
