@@ -22,7 +22,7 @@ individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=
       } else {
         min_model <- colnames(predicted)[fm[[i]]]
         comb_fcast_components <- matrix(NA, ncol=length(fm[[i]]), nrow=h)
-        for(j in 1:length(min_model)){
+        for(j in 1:length(fm[[i]])){
           comb_fcast_components[,j] <- forecast_list[[min_model[j]]][,i]
         }
         comb_fcast <- apply(comb_fcast_components, 1, median)
