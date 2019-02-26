@@ -46,7 +46,7 @@ min.fcasterror <- individual_forecast(predicted= pp,
                                       accmat=cal_MASE,
                                       real.error=accuracy_info$accuracy,
                                       tslist=aa,
-                                      forecast_list=accuracy_info$forecasts)
+                                      forecast_list=accuracy_info$forecasts, h=6)
 
 predicted=pp
 accmat=cal_MASE

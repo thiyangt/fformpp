@@ -28,7 +28,7 @@ individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=
         for(j in 1:length(min_model)){
           comb_fcast_components[,j] <- forecast_list[[min_model[j]]][,i]
         }
-        comb_fcast <- rowMeans(comb_fcast_components)
+        comb_fcast <- apply(comb_fcast_components, 1, median)
         real <- real.error[i, fm[[i]]]
         training <- tslist[[i]]$x
         test <- tslist[[i]]$xx
