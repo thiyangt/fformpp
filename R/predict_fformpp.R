@@ -36,7 +36,7 @@ predict_fformpp <- function(model, feature.df, model.names){
   {
     for(i in 1:nIter)
     {
-      knots.ilst <- knots_mat2list(model$out.fitted[["Params"]][["knots"]][, , i, iCross], model$spline.args)
+      knots.ilst <- movingknots::knots_mat2list(model$out.fitted[["Params"]][["knots"]][, , i, iCross], model$spline.args)
       ## knots.s.mat[(1+q.s*(i-1)):(i*q.s), ] <- knots.ilst[["thinplate.s"]]
       ## knots.a.mat[(1+q.a1*(i-1)):(i*q.a1), ] <- matrix(knots.ilst[["thinplate.a"]], q.a1, 2)
       X.i <- d.matrix(x.testing, knots.ilst, model$spline.args)
