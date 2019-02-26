@@ -31,3 +31,17 @@ use_data(forecast.error.m1)
 load("data-raw/featuresM1Y.rda")
 features.df.m1 <-featuresM1Y
 use_data(features.df.m1)
+
+## Save forecast from M1
+yearlym1.test <- subset(M1, "yearly")[1:2]
+accuracy_info <- fcast_accuracy(tslist=yearlym1.test,
+                                models= c("ets","arima","rw","rwd","wn","theta","nn"),
+                                database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
+aa <- yearlym1.test[1:2]
+
+(predicted, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL)
+min.fcasterror <- individual_forecast(predicted=aa,
+                                      accmat=cal_MASE,
+                                      real.error=accuracy_info$accuracy,
+                                      tslist=aa,
+                                      forecast_list=accuracy_info$forecasts)

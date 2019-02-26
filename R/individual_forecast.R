@@ -7,10 +7,11 @@
 #' @param real.error optional, matrix of MASE values for all algorithms for test data
 #' @param accmat function to compute forecast accuracy
 #' @param tslist list of time series, as in the format of Mcomp object
+#' @param forecast_list true forecast from different models
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=TRUE){
+individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL){
 
     ## Comparison with real MASE
     #fm <- apply(pred.mean, 1, which.min)
