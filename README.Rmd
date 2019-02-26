@@ -82,6 +82,8 @@ predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "
 head(predict.m1)
 ```
 
+**Generate forecast from the model with minimum forecast error**
+
 ```{r}
 library(Mcomp)
 yearlym1 <- subset(M1, "yearly")

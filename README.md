@@ -77,6 +77,8 @@ head(predict.m1)
 #> [6,] 4.393721 4.688228 5.206441 3.583013 15.980581 4.161738 3.784316
 ```
 
+**Generate forecast from the model with minimum forecast error**
+
 ``` r
 library(Mcomp)
 #> Loading required package: forecast
