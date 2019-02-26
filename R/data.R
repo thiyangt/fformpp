@@ -1,28 +1,18 @@
 #' @importFrom tibble tibble
 NULL
-#'featuresM1Y
+#'features.df
 #'
 #' @description Six time series features calculated on M1 competition data
-#' @format A data frame with 181 rows and 8 variables
-#' \describe{
-#' \item{trend}{strength of trend}
-#' \item{ur_pp}{test statistic of Phillip-Perron test }
-#' \item{spikiness}{Spikiness}
-#' \item{beta}{parameter estimate of beta in ETS(A,A,N)}
-#' \item{diff1y_acf1}{first ACF value of the differenced series}
-#' \item{linearity}{strength of linearity in a time series}
-#' \item{curvature}{strength of curvature}
-#' \item{N}{length of the series}
-#' }
+#' @format A data frame with 645 rows and 25 variables
 #' @examples
-#' data(featuresM1Y)
-#' head(featuresM1Y)
-"featuresM1Y"
+#' data(features.df)
+#' head(features.df)
+"features.df"
 
 #' forecast.error
 #'
 #' @desciption MASE values calculated based on six forecast algorithms
-#' @format A data frame with 181 rows with 7 variables
+#' @format A data frame with 645 rows with 7 variables
 #' \describe{
 #' \item{ets}{ets algorithm in the forecast package}
 #' \item{arima}{auto.arima algorithm in the forecast package}
@@ -32,4 +22,8 @@ NULL
 #' \item{theta}{theta approach}
 #' \item{nn}{neural network approach}
 #' }
+"forecast.error"
+
+#' fformpp.model
+#' @description fitted model from fit_fformpp
 "forecast.error"

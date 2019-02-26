@@ -4,7 +4,7 @@
 \name{forecast.error}
 \alias{forecast.error}
 \title{forecast.error}
-\format{A data frame with 181 rows with 7 variables
+\format{A data frame with 645 rows with 7 variables
 \describe{
 \item{ets}{ets algorithm in the forecast package}
 \item{arima}{auto.arima algorithm in the forecast package}
@@ -16,8 +16,10 @@
 }}
 \usage{
 forecast.error
+
+forecast.error
 }
 \description{
-forecast.error
+fitted model from fit_fformpp
 }
 \keyword{datasets}
