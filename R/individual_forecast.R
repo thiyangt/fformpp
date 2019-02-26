@@ -21,7 +21,7 @@ individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=
         MASEOpt[i] <- real.error[i, fm[[i]]]
       } else {
         min_model <- colnames(predicted)[fm[[i]]]
-        comb_fcast_components <- matrix(NA, ncol=length(min_model), nrow=h)
+        comb_fcast_components <- matrix(NA, ncol=length(fm[[i]]), nrow=h)
         for(j in 1:length(min_model)){
           comb_fcast_components[,j] <- forecast_list[[min_model[j]]][,i]
         }
