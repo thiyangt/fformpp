@@ -8,10 +8,11 @@
 #' @param accmat function to compute forecast accuracy
 #' @param tslist list of time series, as in the format of Mcomp object
 #' @param forecast_list true forecast from different models
+#' @param h length of forecast horizon
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL){
+individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL, h=NULL){
 
     ## Comparison with real MASE
     #fm <- apply(pred.mean, 1, which.min)
@@ -23,9 +24,9 @@ individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=
         MASEOpt[i] <- real.error[i, fm[[i]]]
       } else {
         min_model <- colnames(predicted)[fm[[i]]]
-        comb_fcast_components <- matrix(NA, ncol=length(min_model))
+        comb_fcast_components <- matrix(NA, ncol=length(min_model), nrow=h)
         for(j in 1:length(min_model)){
-          comb_fcast_componet[,j] <- forecast_list[min_model[j]][,i]
+          comb_fcast_components[,j] <- forecast_list[[min_model[j]]][,i]
         }
         comb_fcast <- rowMeans(comb_fcast_components)
         real <- real.error[i, fm[[i]]]

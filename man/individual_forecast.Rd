@@ -6,7 +6,7 @@
 the fitted fformpp}
 \usage{
 individual_forecast(predicted, accmat = NULL, real.error = NULL,
-  tslist = TRUE, forecast_list = NULL)
+  tslist = TRUE, forecast_list = NULL, h = NULL)
 }
 \arguments{
 \item{predicted}{predicted forecast errors from predict_fformpp}
@@ -18,6 +18,8 @@ individual_forecast(predicted, accmat = NULL, real.error = NULL,
 \item{tslist}{list of time series, as in the format of Mcomp object}
 
 \item{forecast_list}{true forecast from different models}
+
+\item{h}{length of forecast horizon}
 }
 \description{
 This function is written based on the example codes in movingknots

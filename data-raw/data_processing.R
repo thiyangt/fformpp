@@ -39,9 +39,17 @@ accuracy_info <- fcast_accuracy(tslist=yearlym1.test,
                                 database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
 aa <- yearlym1.test[1:2]
 
-(predicted, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL)
-min.fcasterror <- individual_forecast(predicted=aa,
+pp <- predict.m1[1:2,]
+pp[1,] <- rep(1,7)
+
+min.fcasterror <- individual_forecast(predicted= pp,
                                       accmat=cal_MASE,
                                       real.error=accuracy_info$accuracy,
                                       tslist=aa,
                                       forecast_list=accuracy_info$forecasts)
+
+predicted=pp
+accmat=cal_MASE
+real.error=accuracy_info$accuracy
+tslist=aa
+forecast_list=accuracy_info$forecasts
