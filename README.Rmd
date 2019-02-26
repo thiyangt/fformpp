@@ -35,6 +35,7 @@ library(fformpp)
 ### Following example illustrates how package functionalities work
 
 **Load packages**
+
 ```{r}
 library(methods)
 library(MASS)
