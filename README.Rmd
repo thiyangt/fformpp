@@ -87,11 +87,13 @@ head(predict.m1)
 ```{r}
 library(Mcomp)
 yearlym1 <- subset(M1, "yearly")
+data("fcast_m1")
 min.fcasterror <- individual_forecast(predicted=predict.m1, 
                                       accmat=cal_MASE, 
                                       real.error=forecast.error.m1, 
-                                      tslist=yearlym1)
+                                      tslist=yearlym1, 
+                                      forecast_list = fcast_m1,
+                                      h=6)
 min.fcasterror
 ```
-
 

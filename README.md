@@ -83,10 +83,13 @@ head(predict.m1)
 library(Mcomp)
 #> Loading required package: forecast
 yearlym1 <- subset(M1, "yearly")
+data("fcast_m1")
 min.fcasterror <- individual_forecast(predicted=predict.m1, 
                                       accmat=cal_MASE, 
                                       real.error=forecast.error.m1, 
-                                      tslist=yearlym1)
+                                      tslist=yearlym1, 
+                                      forecast_list = fcast_m1,
+                                      h=6)
 min.fcasterror
 #> $models
 #>   [1] 4 6 7 7 6 4 2 2 1 4 7 4 2 2 1 4 4 6 2 4 2 2 7 5 5 4 4 2 4 5 5 2 4 2 5

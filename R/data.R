@@ -38,3 +38,8 @@ NULL
 #' @description forecast error calculated on M1 data
 #' @format dataframe features calculated on M1 competition data
 "forecast.error.m1"
+
+#' fcast_m1
+#' @description forecasts of M1 data
+#' @format list
+"fcast_m1"

@@ -33,10 +33,19 @@ features.df.m1 <-featuresM1Y
 use_data(features.df.m1)
 
 ## Save forecast from M1
+library(seer)
+library(Mcomp)
 yearlym1.test <- subset(M1, "yearly")[1:2]
 accuracy_info <- fcast_accuracy(tslist=yearlym1.test,
                                 models= c("ets","arima","rw","rwd","wn","theta","nn"),
                                 database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
+fcast_m1 <- accuracy_info$forecasts
+save(fcast_m1, file="data-raw/fcast_m1.rda")
+library(devtools)
+use_data("fcast_m1")
+
+
+
 aa <- yearlym1.test[1:2]
 
 pp <- predict.m1[1:2,]
