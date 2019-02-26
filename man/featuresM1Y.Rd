@@ -10,7 +10,6 @@
 \item{ur_pp}{test statistic of Phillip-Perron test }
 \item{spikiness}{Spikiness}
 \item{beta}{parameter estimate of beta in ETS(A,A,N)}
-\item{alpha}{parameter estimate of alpha in ETS(A,A,N)}
 \item{diff1y_acf1}{first ACF value of the differenced series}
 \item{linearity}{strength of linearity in a time series}
 \item{curvature}{strength of curvature}
