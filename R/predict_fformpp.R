@@ -49,7 +49,7 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=
   pred.mean <- apply(Y.pred, c(1, 2), mean)
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
-
+  colnames(real.MASE) <- model.names
   if(is.null(real.MASE)){
     return(pred.mean)
     } else { # if you have the matrix that calculated pedictions from all models
@@ -63,7 +63,14 @@ predict_fformpp <- function(model, feature.df, model.names, real.MASE=NULL, log=
     if (length(fm[[i]])==1){
     MASEOpt[i] <- real.MASE[i, fm[[i]]]
     } else {
-    MASEOpt[i] <- mean(real.MASE[i, fm[[i]]])
+    min_model <- colnames(pred.mean)[fm[[i]]]
+    comb_fcast_components <- matrix(NA, ncol=length(min_model))
+    for(j in 1:length(min_model)){
+    comb_fcast_componet[,j] <- forecast_list[min_model[j]][,i]
+    }
+    comb_fcast <- rowMeans(comb_fcast_components)
+    real <- real.MASE[i, fm[[i]]]
+    MASEOpt[i] <- accmat(real, comb_fcast)
     }
   }
 

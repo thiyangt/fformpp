@@ -5,8 +5,7 @@
 \title{Function to predict forecast error measures from the
 the fitted fformpp}
 \usage{
-predict_fformpp(model, feature.df, model.names, real.MASE = NULL,
-  log = TRUE)
+predict_fformpp(model, feature.df, model.names)
 }
 \arguments{
 \item{model}{fitted fformpp models, output of the function fit_fformpp}
@@ -15,10 +14,6 @@ predict_fformpp(model, feature.df, model.names, real.MASE = NULL,
 
 \item{model.names}{vector of names of the forecast algorithms, similar to the order
 of accmat argument in fit_ebmsr}
-
-\item{real.MASE}{optional, matrix of MASE values for all algorithms for test data}
-
-\item{log}{if log transformation is used to convert Y values to real line}
 }
 \description{
 This function is written based on the example codes in movingknots
