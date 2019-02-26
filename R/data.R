@@ -26,4 +26,5 @@ NULL
 
 #' fformpp.model
 #' @description fitted model from fit_fformpp
+#' @format list containing fitted model and spline arguments
 "forecast.error"
