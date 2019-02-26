@@ -82,4 +82,11 @@ predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "
 head(predict.m1)
 ```
 
+```{r}
+library(Mcomp)
+yearlym1 <- subset(M1, "yearly")
+min.fcasterror <- individual_forecast(predict.m1, cal_MASE, forecast.error.m1, yearlym1)
+
+```
+
 

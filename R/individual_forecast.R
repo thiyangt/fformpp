@@ -34,9 +34,9 @@ individual_forecast <- function(predicted, accmat=NULL, real.error=NULL, tslist=
       }
     }
 
-    summary_prediction_results <- rbind(c(mean(MASEOpt), apply(real.MASE, 2, mean)),
-                                        c(median(MASEOpt), apply(real.MASE, 2, median)))
-    dimnames(summary_prediction_results) <- list(c("mean", "median"), c("our_method", colnames(real.MASE)))
+    summary_prediction_results <- rbind(c(mean(MASEOpt), apply(real.error, 2, mean)),
+                                        c(median(MASEOpt), apply(real.error, 2, median)))
+    dimnames(summary_prediction_results) <- list(c("mean", "median"), c("our_method", colnames(real.error)))
 
     return(list(models=fm, minmase=MASEOpt, summary=summary_prediction_results))
 }
