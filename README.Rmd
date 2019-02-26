@@ -75,7 +75,7 @@ fformpp.model <- fit_fformpp(feamat=features_mat, accmat=forecast.error,
 data("fformpp.model")
 data("forecast.error.m1")
 data("features.df.m1")
-predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"))
+predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=TRUE)
 head(predict.m1)
 ```
 

@@ -8,10 +8,11 @@
 #' @param feature.df feature matrix of test data
 #' @param model.names vector of names of the forecast algorithms, similar to the order
 #' of accmat argument in fit_ebmsr
+#' @param log if log transformation is used to convert Y values to real line
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-predict_fformpp <- function(model, feature.df, model.names){
+predict_fformpp <- function(model, feature.df, model.names, log=TRUE){
 
   # Preparation of the testing file
   x.testing <- feature.df %>% as.matrix()
