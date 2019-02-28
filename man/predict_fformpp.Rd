@@ -5,7 +5,8 @@
 \title{Function to predict forecast error measures from the
 the fitted fformpp}
 \usage{
-predict_fformpp(model, feature.df, model.names, log = TRUE)
+predict_fformpp(model, feature.df, model.names, log = TRUE,
+  final.estimate)
 }
 \arguments{
 \item{model}{fitted fformpp models, output of the function fit_fformpp}
@@ -16,6 +17,8 @@ predict_fformpp(model, feature.df, model.names, log = TRUE)
 of accmat argument in fit_ebmsr}
 
 \item{log}{if log transformation is used to convert Y values to real line}
+
+\item{final.estimate}{final estimate base on posterior distributions, mean or median}
 }
 \description{
 This function is written based on the example codes in movingknots

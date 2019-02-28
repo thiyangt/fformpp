@@ -9,10 +9,11 @@
 #' @param model.names vector of names of the forecast algorithms, similar to the order
 #' of accmat argument in fit_ebmsr
 #' @param log if log transformation is used to convert Y values to real line
+#' @param final.estimate final estimate base on posterior distributions, mean or median
 #' @importFrom magrittr %>%
 #' @importFrom stats median
 #' @export
-predict_fformpp <- function(model, feature.df, model.names, log=TRUE){
+predict_fformpp <- function(model, feature.df, model.names, log=TRUE, final.estimate){
 
   # Preparation of the testing file
   x.testing <- feature.df %>% as.matrix()
@@ -45,7 +46,8 @@ predict_fformpp <- function(model, feature.df, model.names, log=TRUE){
       Y.pred[, , i] <- X.i %*% B.i # Transformed scale,  but should be OK here.
     }
   }
-  pred.mean <- apply(Y.pred, c(1, 2), mean)
+  FUN <- match.fun(final.estimate)
+  pred.mean <- apply(Y.pred, c(1, 2), FUN)
   colnames(pred.mean) <- model.names
   if(log==TRUE){pred.mean <- exp(pred.mean)}
   colnames(pred.mean) <- model.names
@@ -54,4 +56,6 @@ predict_fformpp <- function(model, feature.df, model.names, log=TRUE){
 
 }
 #' @examples
-#' predictions <- predict_fformpp(fformpp, feamat, c("arima","ets","rw","rwd", "theta", "nn"))
+#' predictions <- predict_fformpp(fformpp.model, features.df.m1,
+#'  c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"),
+#' log=FALSE, final.estimate=median)

@@ -57,7 +57,7 @@ forecast.error <- as.matrix(forecast.error)
 **Fit surface regression model**
 
 ```r
-## This will take time. This model is saved in the package. THe fitted model is  saved into the package for easy references.
+## This will take time. This model is saved in the package. The fitted model is  saved into the package for easy references.
 n <- dim(forecast.error)[1]
 p <- dim(forecast.error)[2]
 
@@ -78,7 +78,7 @@ fformpp.model <- fit_fformpp(feamat=features_mat, accmat=forecast.error,
 data("fformpp.model")
 data("forecast.error.m1")
 data("features.df.m1")
-predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=FALSE)
+predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=FALSE, final.estimate=median)
 head(predict.m1)
 ```
 
