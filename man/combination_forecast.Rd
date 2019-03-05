@@ -6,7 +6,7 @@
 \usage{
 combination_forecast(predicted, ncomp = 2, accmat = NULL,
   real.error = NULL, tslist = TRUE, forecast_list = NULL, h = NULL,
-  weights = TRUE)
+  weights = TRUE, measure)
 }
 \arguments{
 \item{predicted}{prediction value matrix}
@@ -24,6 +24,8 @@ combination_forecast(predicted, ncomp = 2, accmat = NULL,
 \item{h}{length of forecast horizon}
 
 \item{weights}{weighted by MASE}
+
+\item{measure}{summary measure to be used mean or median}
 }
 \value{
 list containing the forecasts and summaries
