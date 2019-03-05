@@ -6,7 +6,7 @@
 \usage{
 combination_forecast(predicted, ncomp = 2, accmat = NULL,
   real.error = NULL, tslist = TRUE, forecast_list = NULL, h = NULL,
-  weights = TRUE, measure)
+  weights = TRUE, measure = NULL)
 }
 \arguments{
 \item{predicted}{prediction value matrix}

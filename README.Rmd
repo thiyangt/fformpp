@@ -110,6 +110,6 @@ min.fcasterror.comb <- combination_forecast(predicted=predict.m1[1:2,],
                                       real.error=forecast.error.m1, 
                                       tslist=yearlym1, 
                                       forecast_list = fcast_m1,
-                                      h=6, weights=TRUE)
+                                      h=6, weights=FALSE, measure="mean")
 min.fcasterror.comb
 ```

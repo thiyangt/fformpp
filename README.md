@@ -165,7 +165,7 @@ min.fcasterror.comb <- combination_forecast(predicted=predict.m1[1:2,],
                                       real.error=forecast.error.m1, 
                                       tslist=yearlym1, 
                                       forecast_list = fcast_m1,
-                                      h=6)
+                                      h=6, weights=FALSE, measure="mean")
 min.fcasterror.comb
 #> $models
 #> $models[[1]]
@@ -176,12 +176,12 @@ min.fcasterror.comb
 #> 
 #> 
 #> $minmase
-#> [1] 21.46605 15.77728
+#> [1] 11.307993  7.007477
 #> 
 #> $summary
 #>        our_method_comb      ets    arima       rw      rwd        wn
-#> mean          18.62167 3.771245 3.473598 4.893131 3.489743 10.006127
-#> median        18.62167 2.323728 2.191300 3.771522 2.292537  9.391286
+#> mean          9.157735 3.771245 3.473598 4.893131 3.489743 10.006127
+#> median        9.157735 2.323728 2.191300 3.771522 2.292537  9.391286
 #>           theta       nn
 #> mean   4.189472 4.602657
 #> median 3.154610 3.111168

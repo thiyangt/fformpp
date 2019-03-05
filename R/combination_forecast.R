@@ -12,7 +12,7 @@
 #' @param measure summary measure to be used mean or median
 #' @return list containing the forecasts and summaries
 #' @export
-combination_forecast <- function(predicted, ncomp=2, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL, h=NULL, weights=TRUE, measure){
+combination_forecast <- function(predicted, ncomp=2, accmat=NULL, real.error=NULL, tslist=TRUE, forecast_list=NULL, h=NULL, weights=TRUE, measure=NULL){
   tpredicted <- t(predicted)
   pred.list <- lapply(seq_len(ncol(tpredicted)), function(i) tpredicted[,i])
   fm <- lapply(pred.list, function(temp, ncomp) {
