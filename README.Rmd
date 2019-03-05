@@ -43,6 +43,7 @@ library(Matrix)
 library(mvtnorm)
 library(flutils)
 library(fformpp)
+library(seer)
 ```
 
 **Load example dataset**
@@ -97,3 +98,18 @@ min.fcasterror <- individual_forecast(predicted=predict.m1,
 min.fcasterror
 ```
 
+**Generate combination forecasts**
+
+```{r}
+library(Mcomp)
+yearlym1 <- subset(M1, "yearly")
+data("fcast_m1")
+min.fcasterror.comb <- combination_forecast(predicted=predict.m1[1:2,], 
+                                      ncomp=2,
+                                      accmat=cal_MASE, 
+                                      real.error=forecast.error.m1, 
+                                      tslist=yearlym1, 
+                                      forecast_list = fcast_m1,
+                                      h=6, weights=TRUE)
+min.fcasterror.comb
+```

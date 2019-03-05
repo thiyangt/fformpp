@@ -32,6 +32,7 @@ library(Matrix)
 library(mvtnorm)
 library(flutils)
 library(fformpp)
+library(seer)
 ```
 
 **Load example dataset**
@@ -82,6 +83,11 @@ head(predict.m1)
 ``` r
 library(Mcomp)
 #> Loading required package: forecast
+#> 
+#> Attaching package: 'Mcomp'
+#> The following object is masked from 'package:seer':
+#> 
+#>     subset.Mcomp
 yearlym1 <- subset(M1, "yearly")
 data("fcast_m1")
 min.fcasterror <- individual_forecast(predicted=predict.m1, 
@@ -145,4 +151,38 @@ min.fcasterror
 #>              nn
 #> mean   4.602657
 #> median 3.111168
+```
+
+**Generate combination forecasts**
+
+``` r
+library(Mcomp)
+yearlym1 <- subset(M1, "yearly")
+data("fcast_m1")
+min.fcasterror.comb <- combination_forecast(predicted=predict.m1[1:2,], 
+                                      ncomp=2,
+                                      accmat=cal_MASE, 
+                                      real.error=forecast.error.m1, 
+                                      tslist=yearlym1, 
+                                      forecast_list = fcast_m1,
+                                      h=6)
+min.fcasterror.comb
+#> $models
+#> $models[[1]]
+#> [1] 4 6
+#> 
+#> $models[[2]]
+#> [1] 3 6
+#> 
+#> 
+#> $minmase
+#> [1] 21.46605 15.77728
+#> 
+#> $summary
+#>        our_method_comb      ets    arima       rw      rwd        wn
+#> mean          18.62167 3.771245 3.473598 4.893131 3.489743 10.006127
+#> median        18.62167 2.323728 2.191300 3.771522 2.292537  9.391286
+#>           theta       nn
+#> mean   4.189472 4.602657
+#> median 3.154610 3.111168
 ```
