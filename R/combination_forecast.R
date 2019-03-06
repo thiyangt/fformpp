@@ -38,10 +38,10 @@ combination_forecast <- function(predicted, ncomp=2, accmat=NULL, real.error=NUL
       }
 
       if(measure=="mean"){
-      comb_fcast <- apply(comb_fcast_components, 1, mean)
+      comb_fcast <- apply(comb_fcast_components, 1, mean, na.rm=TRUE)
       }
       if(measure=="median"){
-        comb_fcast <- apply(comb_fcast_components, 1, median)
+        comb_fcast <- apply(comb_fcast_components, 1, median, na.rm=TRUE)
       }
       real <- real.error[i, fm[[i]]]
       training <- tslist[[i]]$x
