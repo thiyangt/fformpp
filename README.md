@@ -30,7 +30,7 @@ library(methods)
 library(MASS)
 library(Matrix)
 library(mvtnorm)
-library(flutils)
+#library(flutils)
 library(fformpp)
 library(seer)
 ```
