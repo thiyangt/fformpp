@@ -1,16 +1,23 @@
 
-[![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://travis-ci.org/thiyangt/fformpp.svg?branch=master)](https://travis-ci.org/thiyangt/fformpp.svg?branch=masterr)
+[![Project Status: Active ? The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build
+Status](https://travis-ci.org/thiyangt/fformpp.svg?branch=master)](https://travis-ci.org/thiyangt/fformpp.svg?branch=masterr)
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-fformpp
-=======
 
-Installation
-------------
+# fformpp
 
-The linked packages [flutils](https://github.com/feng-li/flutils) and [movingknots](https://github.com/feng-li/movingknots) should be installed prior to the installation of fformpp.
+## Installation
+
+The linked packages [flutils](https://github.com/feng-li/flutils) and
+[movingknots](https://github.com/feng-li/movingknots) should be
+installed prior to the installation of fformpp.
 
 ``` r
 # install.packages("devtools")
@@ -18,8 +25,7 @@ devtools::install_github("thiyangt/fformpp")
 library(fformpp)
 ```
 
-Usage
------
+## Usage
 
 ### Following example illustrates how package functionalities work
 
@@ -30,9 +36,19 @@ library(methods)
 library(MASS)
 library(Matrix)
 library(mvtnorm)
-#library(flutils)
 library(fformpp)
 library(seer)
+#> Registered S3 method overwritten by 'xts':
+#>   method     from
+#>   as.zoo.xts zoo
+#> Registered S3 method overwritten by 'quantmod':
+#>   method            from
+#>   as.zoo.data.frame zoo
+#> Registered S3 methods overwritten by 'forecast':
+#>   method             from    
+#>   fitted.fracdiff    fracdiff
+#>   residuals.fracdiff fracdiff
+library(parallel)
 ```
 
 **Load example dataset**
@@ -44,7 +60,8 @@ features_mat <- as.matrix(features.df)
 forecast.error <- as.matrix(forecast.error)
 ```
 
-**Fit surface regression model**
+**Fit surface regression
+model**
 
 ``` r
 ## This will take time. This model is saved in the package. The fitted model is  saved into the package for easy references.
@@ -83,6 +100,10 @@ head(predict.m1)
 ``` r
 library(Mcomp)
 #> Loading required package: forecast
+#> Registered S3 methods overwritten by 'Mcomp':
+#>   method       from
+#>   [.Mcomp      seer
+#>   subset.Mcomp seer
 #> 
 #> Attaching package: 'Mcomp'
 #> The following object is masked from 'package:seer':

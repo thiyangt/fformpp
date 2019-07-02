@@ -19,7 +19,7 @@ predict_fformpp <- function(model, feature.df, model.names, log=TRUE, final.esti
   x.testing <- feature.df %>% as.matrix()
   colnames(x.testing) <- NULL
 
-  x.testing <- flutils::StdData(x.testing, method = "norm-0-1")[["data"]]
+  x.testing <- StdData(x.testing, method = "norm-0-1")[["data"]]
   ## Which cross validation fold used
   iCross <- 1
 
@@ -38,7 +38,7 @@ predict_fformpp <- function(model, feature.df, model.names, log=TRUE, final.esti
   {
     for(i in 1:nIter)
     {
-      knots.ilst <- movingknots::knots_mat2list(model$out.fitted[["Params"]][["knots"]][, , i, iCross], model$spline.args)
+      knots.ilst <- knots_mat2list(model$out.fitted[["Params"]][["knots"]][, , i, iCross], model$spline.args)
       ## knots.s.mat[(1+q.s*(i-1)):(i*q.s), ] <- knots.ilst[["thinplate.s"]]
       ## knots.a.mat[(1+q.a1*(i-1)):(i*q.a1), ] <- matrix(knots.ilst[["thinplate.a"]], q.a1, 2)
       X.i <- d.matrix(x.testing, knots.ilst, model$spline.args)
