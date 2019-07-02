@@ -84,7 +84,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## The split argument is only used when surface and additive subsets are of the
   ## same length
 
-  if(knot.moving.algorithm=="KStepNewton"){
+  if(knot.moving.algorithm=="KStepNewton"|knot.moving.algorithm=="SGLD"){
     Params_subsetsArgs <- list(
       "knots" = list(thinplate.s = list(N.subsets = 1, partiMethod = "systematic"),
                      thinplate.a = list(N.subsets = 1, partiMethod = "systematic"), split = FALSE),
@@ -152,7 +152,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   LPDS.sampleProp <- 0.05 # Sample proportion to the total posterior after burn-in.
 
   ## CROSS-VALIDATION
-  cross.validation <- list(N.subsets = 0, # No. of folds. If 0:, no cross-validation.
+  crossValidArgs <- list(N.subsets = 0, # No. of folds. If 0:, no cross-validation.
                            partiMethod = "systematic", # How to partition the data
                            full.run = FALSE)     # Also include a full run.
 
@@ -296,7 +296,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## The training($training) and testing($testing) structure.
   ## If no cross-validation, $training is also $testing.
   ## If full run is required, the last list in $training and $testing is for a full run.
-  crossvalid.struc <<- fformpp::set.crossvalid(nObs = n, crossValidArgs = cross.validation)
+  crossvalid.struc <<- fformpp::set.crossvalid(nObs = n, crossValidArgs = crossValidArgs)
 
   ## No. of total runs
   nCross <<- length(crossvalid.struc$training)

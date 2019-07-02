@@ -41,9 +41,9 @@ library(methods)
 library(MASS)
 library(Matrix)
 library(mvtnorm)
-library(flutils)
 library(fformpp)
 library(seer)
+library(parallel)
 ```
 
 **Load example dataset**
