@@ -177,7 +177,7 @@ gradient_vecB <- function(B,Sigma,x,xi,l0,l,link,gradient.prior.vecB)
 
     p <-dim(Sigma)[1]
 
-    X <- d.matrix(x,xi,l0,l)
+    X <- d.matrix(x,xi,l0)
     XB <- X%*%B ## Linear Predictor
     Sigma_1 <- solve(Sigma)
 
@@ -200,7 +200,7 @@ grad_vech_Sigma <- function(B,Sigma,x,xi,l0,l,link,gradient.prior.Sigma)
   p <-dim(Sigma)[1]
   n <- dim(x)[1]
 
-  X <- d.matrix(x,xi,l0,l)
+  X <- d.matrix(x,xi,l0)
   XB <- X%*%B ## Linear Predictor
   Sigma_1 <- solve(Sigma)
 
@@ -219,7 +219,7 @@ grad_vech_Sigma <- function(B,Sigma,x,xi,l0,l,link,gradient.prior.Sigma)
 gradient_xi <- function(Y,x,xi,l0,l,n0,S0,B,ka,gradient.prior.xi)
   {
 
-    X <- d.matrix(x,xi,l0,l)
+    X <- d.matrix(x,xi,l0)
     n <- dim(x)[1]
     p <- dim(Y)[2]
     q <- dim(X)[2]
@@ -285,7 +285,7 @@ gradient_xi_condi <- function(B,Sigma,x,xi,l0,l,link,gradient.prior.xi)
   p <-dim(Sigma)[1]
   n <- dim(x)[1]
 
-  X <- d.matrix(x,xi,l0,l)
+  X <- d.matrix(x,xi,l0)
   XB <- X%*%B ## Linear Predictor
   Sigma_1 <- solve(Sigma)
 
