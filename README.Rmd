@@ -36,7 +36,7 @@ library(fformpp)
 
 **Load packages**
 
-```{r}
+```{r, warning=FALSE}
 library(methods)
 library(MASS)
 library(Matrix)
