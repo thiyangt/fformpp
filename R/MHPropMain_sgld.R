@@ -58,7 +58,6 @@ MHPropMain_sgld <- function(param.cur, gradhess.fun.name, logpost.fun.name, nNew
                                      callParam = callParam,
                                      splineArgs = splineArgs,
                                      priorArgs = priorArgs,
-                                     algArgs = algArgs,
                                      Params_Transform = Params_Transform)
     }
     else if ((tolower(propMethod) == "random-walk"))
