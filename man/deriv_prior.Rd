@@ -21,11 +21,6 @@ priorArgs$shrinkage: "numeric", the shrinkage for the covariance.}
 }
 \value{
 "list". The gradient and hessian matrix, see below.
-\item   {gradObsPri}
-        {"matrix". One-colunm.}
-
-\item   {hessObsPri}
-        {"matrix". A squre matrix. Dimension same as prior_type$Sigma0.}
 }
 \description{
 A collection of gradient for common priors.

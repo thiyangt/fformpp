@@ -12,11 +12,6 @@
 ##'         The radius shrinkage factor for the Mahalanobis e-ball
 ##'
 ##' @return "list"
-##' \item   {n.knots}
-##'         {"numeric". The no. of knots returned}
-##' \item   {location}
-##'         {"matrix". The knots location}
-##'
 ##' @references  Appendix C. in Villani et al (2009)
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
 ##' @note First version:  Wed Mar 10 14:03:31  CET 2010;

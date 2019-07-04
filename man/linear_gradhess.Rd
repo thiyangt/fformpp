@@ -46,11 +46,7 @@ callParams$id: the calling tag for the gradient. Possible values is "xi". "ka"
 callParams$subset: not all updated.}
 }
 \value{
-"list",  see bellow.
-\item   {gradObs}
-        {"matrix". n*p-by-1 The observed gradient for xi.}
-\item   {hessObs}
-        {"matrix". The obsered Hessian matrix for xi.}
+"list",
 }
 \description{
 This is the gradient and hessian matrix for the simple spline model with conjugate

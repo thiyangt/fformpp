@@ -43,12 +43,7 @@
 ##'         priorArgs$K.mu0: mean for ka
 ##'         priorArgs$K.Sigma0: variance for ka
 ##'
-##' @return "list",  see bellow.
-##' \item   {gradObs}
-##'         {"matrix". n*p-by-1 The observed gradient for xi.}
-##' \item   {hessObs}
-##'         {"matrix". The obsered Hessian matrix for xi.}
-##'
+##' @return "list",
 ##' @references Li and Villani's notes
 ##' @author Feng Li, Dept. of Statistics, Stockholm University, Sweden.
 ##' @note First version: Fri Aug 27 10:36:38 CEST 2010.

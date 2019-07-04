@@ -18,10 +18,6 @@ The radius shrinkage factor for the Mahalanobis e-ball}
 }
 \value{
 "list"
-\item   {n.knots}
-        {"numeric". The no. of knots returned}
-\item   {location}
-        {"matrix". The knots location}
 }
 \description{
 Locate knots in a m-space using Villani(2009)'s algorithm.

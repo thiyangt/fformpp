@@ -17,12 +17,6 @@
 ##'         priorArgs$shrinkage: "numeric", the shrinkage for the covariance.
 ##'
 ##' @return "list". The gradient and hessian matrix, see below.
-##' \item   {gradObsPri}
-##'         {"matrix". One-colunm.}
-##'
-##' \item   {hessObsPri}
-##'         {"matrix". A squre matrix. Dimension same as prior_type$Sigma0.}
-##'
 ##' @references
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
 ##' @note First version: Tue Mar 30 09:33:23 CEST 2010;
