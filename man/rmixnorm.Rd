@@ -26,16 +26,6 @@ Generate random variables from univariate and multivariate mixture normal distri
 \details{
 Random variables from mixture of normals.
 }
-\examples{
-n <- 1000
-means <- matrix(c(-5, 0, 5), 1)
-sigmas <- array(c(1, 1, 1), c(1, 1, 3))
-weights <- c(0.3, 0.4, 0.3)
-out <- rmixnorm(n, means, sigmas, weights)
-hist(out, breaks = 100, freq = FALSE)
-
-
-}
 \references{
 Villani et al 2009
 }

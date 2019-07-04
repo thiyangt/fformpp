@@ -26,14 +26,6 @@ Density for univariate and multivariate mixture normal distribution
 \details{
 Density from mixture of normals.
 }
-\examples{
-n <- 1
-means <- matrix(c(-5, 0, 5), 1)
-sigmas <- array(c(1, 1, 1), c(1, 1, 3))
-weights <- c(0.3, 0.4, 0.3)
-out <- rmixnorm(n, means, sigmas, weights)
-out.density <- dmixnorm(out, means, sigmas, weights)
-}
 \references{
 Villani et al 2009
 }

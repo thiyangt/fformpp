@@ -11,15 +11,6 @@
 ##' @return An `n-by-q` matrix
 ##' @references Villani et al 2009
 ##' @author Feng Li, Central University of Finance and Economics.
-##' @examples
-##' n <- 1000
-##' means <- matrix(c(-5, 0, 5), 1)
-##' sigmas <- array(c(1, 1, 1), c(1, 1, 3))
-##' weights <- c(0.3, 0.4, 0.3)
-##' out <- rmixnorm(n, means, sigmas, weights)
-##' hist(out, breaks = 100, freq = FALSE)
-##'
-##'
 ##' @export
 rmixnorm <- function(n, means, sigmas, weights)
 {
@@ -37,7 +28,7 @@ rmixnorm <- function(n, means, sigmas, weights)
     out <- apply(idx, 2, function(x, means, sigmas, q)
     {
         which.comp <- which(x == 1)
-        rmvnorm(n = 1, mean = means[, which.comp],
+        mvtnorm::rmvnorm(n = 1, mean = means[, which.comp],
                 sigma = matrix(sigmas[, , which.comp], q, q))
     }, means = means, sigmas = sigmas, q = q)
 
@@ -59,13 +50,6 @@ rmixnorm <- function(n, means, sigmas, weights)
 ##' @return An `n-by-q` matrix
 ##' @references Villani et al 2009
 ##' @author Feng Li, Central University of Finance and Economics.
-##' @examples
-##' n <- 1
-##' means <- matrix(c(-5, 0, 5), 1)
-##' sigmas <- array(c(1, 1, 1), c(1, 1, 3))
-##' weights <- c(0.3, 0.4, 0.3)
-##' out <- rmixnorm(n, means, sigmas, weights)
-##' out.density <- dmixnorm(out, means, sigmas, weights)
 ##' @export
 dmixnorm <- function(x, means, sigmas, weights, log = FALSE)
 {
@@ -80,7 +64,7 @@ dmixnorm <- function(x, means, sigmas, weights, log = FALSE)
 
     out.comp.log <- apply(matrix(1:k), 1, function(comp.i, x, means, sigmas, q)
     {
-        dmvnorm(x = matrix(x, 1, q), mean = matrix(means[, comp.i], 1, q),
+        mvtnorm::dmvnorm(x = matrix(x, 1, q), mean = matrix(means[, comp.i], 1, q),
                 sigma = matrix(sigmas[, ,comp.i], q, q),
                 log = TRUE)
     }, x = x,  means = means, sigmas = sigmas, q = q)

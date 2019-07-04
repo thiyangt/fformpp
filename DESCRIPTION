@@ -1,9 +1,9 @@
 Package: fformpp
 Type: Package
 Title: Feature-based FORecast Model Performance Prediction
-Version: 0.1.0
+Version: 1.1.0
 Authors@R: c(
-    person("Thiyanga", "Talagala", email = "Rthiyanga.talagala@monash.edu", role = c("aut","cre")),
+    person("Thiyanga", "Talagala", email = "thiyanga.talagala@monash.edu", role = c("aut","cre")),
     person("Feng", "Li", role = "aut"),
     person("Yanfei", "Kang", role = "aut"))
 Maintainer: <thiyanga.talagala@monash.edu>
@@ -28,6 +28,8 @@ Imports:
         Matrix,
         mvtnorm,
         tidyverse,
+        mvtnorm,
+        fGarch,
         seer
 Remotes: robjhyndman/tsfeatures,
          thiyangt/seer
