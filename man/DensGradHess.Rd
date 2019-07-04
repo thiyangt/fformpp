@@ -14,18 +14,14 @@ one-column matrix}
 \item{...}{The arguments for the densities. The name should be matched
 exactly.}
 
+\item{type}{default norm}
+
 \item{grad}{"logical" Should the gradient be computed?}
 
 \item{Hess}{"logical" Should the Hessian be computed?}
 }
 \value{
-"list". The gradient and Hessian (if required) matrices, see below.
-\item   {grad}
-        {"matrix". One-column.}
-
-\item   {Hess}
-        {"matrix". A squared matrix. Dimension on row and column are  same
-        as length of B.}
+"list". The gradient and Hessian (if required) matrices
 }
 \description{
 The parameters after "..." should be matched exactly.

@@ -7,17 +7,10 @@
 ##'
 ##' @param ... The arguments for the densities. The name should be matched
 ##' exactly.
-##' @param type
+##' @param type default norm
 ##' @param grad "logical" Should the gradient be computed?
 ##' @param Hess "logical" Should the Hessian be computed?
-##' @return "list". The gradient and Hessian (if required) matrices, see below.
-##' \item   {grad}
-##'         {"matrix". One-column.}
-##'
-##' \item   {Hess}
-##'         {"matrix". A squared matrix. Dimension on row and column are  same
-##'         as length of B.}
-##'
+##' @return "list". The gradient and Hessian (if required) matrices
 ##' @references
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
 ##' @note First version: Tue Mar 30 09:33:23 CEST 2010;
