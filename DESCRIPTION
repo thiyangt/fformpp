@@ -30,6 +30,8 @@ Imports:
         tidyverse,
         mvtnorm,
         fGarch,
+        movingknots,
+        flutils,
         seer
 Remotes: robjhyndman/tsfeatures,
          thiyangt/seer
