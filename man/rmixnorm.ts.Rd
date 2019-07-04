@@ -27,20 +27,6 @@ Simulating AR type random variables from mixture of normals
 This function simulates random samples from a finite mixture of Gaussian distribution
     where the mean from each components are AR(p) process.
 }
-\examples{
-n = 1000
-means.ar.par.list = list(c(0, 0.8), c(0, 0.6, 0.3))
-require("fGarch")
-sigmas.spec <- list(garchSpec(model = list(alpha = c(0.05, 0.06)), cond.dist = "norm"),
-                    garchSpec(model = list(alpha = c(0.05, 0.05)), cond.dist = "norm"))
-sigmas.list <- lapply(lapply(sigmas.spec, garchSim, extended = TRUE, n = n),
-                      function(x) x$sigma)
-weights <- c(0.8, 0.2)
-y = rmixnorm.ts(n = n, means.ar.par.list = means.ar.par.list, sigmas.list = sigmas.list,
-                weights = weights)
-plot(y, type = "l")
-
-}
 \references{
 Li 2010 JSPI
 }
