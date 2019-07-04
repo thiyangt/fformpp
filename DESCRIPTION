@@ -28,9 +28,7 @@ Imports:
         Matrix,
         mvtnorm,
         tidyverse,
-        seer,
-        movingknots,
-        flutils
+        seer
 Remotes: robjhyndman/tsfeatures,
          thiyangt/seer
 Encoding: UTF-8
