@@ -29,6 +29,7 @@ Imports:
         mvtnorm,
         tidyverse,
         mvtnorm,
+        parallel,
         fGarch,
         seer
 Remotes: robjhyndman/tsfeatures,

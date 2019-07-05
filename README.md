@@ -15,10 +15,6 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 ## Installation
 
-The linked packages [flutils](https://github.com/feng-li/flutils) and
-[movingknots](https://github.com/feng-li/movingknots) should be
-installed prior to the installation of fformpp.
-
 ``` r
 # install.packages("devtools")
 devtools::install_github("thiyangt/fformpp")
@@ -27,28 +23,9 @@ library(fformpp)
 
 ## Usage
 
-### Following example illustrates how package functionalities work
-
-**Load packages**
-
 ``` r
-library(methods)
-library(MASS)
-library(Matrix)
-library(mvtnorm)
 library(fformpp)
 library(seer)
-#> Registered S3 method overwritten by 'xts':
-#>   method     from
-#>   as.zoo.xts zoo
-#> Registered S3 method overwritten by 'quantmod':
-#>   method            from
-#>   as.zoo.data.frame zoo
-#> Registered S3 methods overwritten by 'forecast':
-#>   method             from    
-#>   fitted.fracdiff    fracdiff
-#>   residuals.fracdiff fracdiff
-library(parallel)
 ```
 
 **Load example dataset**
@@ -82,7 +59,6 @@ fformpp.model <- fit_fformpp(feamat=features_mat, accmat=forecast.error,
 
 ``` r
 data("fformpp.model")
-data("forecast.error.m1")
 data("features.df.m1")
 predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=FALSE, final.estimate=median)
 head(predict.m1)
@@ -95,7 +71,7 @@ head(predict.m1)
 #> [6,] 4.295996 4.494820 5.135292 3.523215 16.085372 4.021210 3.916389
 ```
 
-**Generate forecast from the model with minimum forecast error**
+**Generate findividual forecasts**
 
 ``` r
 library(Mcomp)
@@ -109,6 +85,7 @@ library(Mcomp)
 #> The following object is masked from 'package:seer':
 #> 
 #>     subset.Mcomp
+data("forecast.error.m1")
 yearlym1 <- subset(M1, "yearly")
 data("fcast_m1")
 min.fcasterror <- individual_forecast(predicted=predict.m1, 
@@ -207,3 +184,8 @@ min.fcasterror.comb
 #> mean   4.189472 4.602657
 #> median 3.154610 3.111168
 ```
+
+More about Efficient Bayesian Multivariate Regression: see the linked
+packages [flutils](https://github.com/feng-li/flutils) and
+[movingknots](https://github.com/feng-li/movingknots) by [Feng
+Li](https://github.com/feng-li)
