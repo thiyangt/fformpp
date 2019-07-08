@@ -33,6 +33,11 @@ library(fformpp)
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 library(fformpp)
 library(seer)
+library(methods)
+library(MASS)
+library(Matrix)
+library(parallel)
+library(mvtnorm)
 ```
 
 **Load example dataset**

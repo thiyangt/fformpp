@@ -23,6 +23,11 @@ library(fformpp)
 ``` r
 library(fformpp)
 library(seer)
+library(methods)
+library(MASS)
+library(Matrix)
+library(parallel)
+library(mvtnorm)
 ```
 
 **Load example dataset**
