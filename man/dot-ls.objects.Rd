@@ -8,8 +8,14 @@ http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory
 improved list of objects
 TODO: Better default sorting}
 \usage{
-.ls.objects(pos = 1, pattern, order.by, decreasing = FALSE,
-  head = FALSE, n = 5)
+.ls.objects(
+  pos = 1,
+  pattern,
+  order.by,
+  decreasing = FALSE,
+  head = FALSE,
+  n = 5
+)
 }
 \description{
 List the object size

@@ -1,7 +1,7 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
+##' @title description
 ##' @param aT
 ##' @param Sigma.inv
 ##' @param Xmats.delta.knots

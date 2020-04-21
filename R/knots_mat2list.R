@@ -1,7 +1,6 @@
 ##' convert the knots matrix into the knots list
 ##'
 ##' <details>
-##' @title
 ##' @param knots.mat
 ##' @return
 ##' @references

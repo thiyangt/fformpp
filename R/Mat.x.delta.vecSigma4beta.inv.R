@@ -1,7 +1,6 @@
 ##' Compute a matrix to pre-multiply the gradient for vec beta's inverse variance
 ##'
 ##' <details>
-##' @title
 ##' @param Mat
 ##' @param delta4K.list
 ##' @param args "list" args$subset: subset of the shrinkage

@@ -30,6 +30,9 @@ The parameters after "..." should be matched exactly.
 First version: Tue Mar 30 09:33:23 CEST 2010;
       Current:       Fri Mar 02 17:01:20 CET 2012.
 }
+\references{
+
+}
 \author{
 Feng Li, Department of Statistics, Stockholm University, Sweden.
 }

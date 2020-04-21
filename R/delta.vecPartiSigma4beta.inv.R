@@ -1,7 +1,6 @@
 ##' This is the gradient for a single partition of beta's variance.
 ##'
 ##' <details>
-##' @title
 ##' @param diag.K_i
 ##' @param Sigma.inv
 ##' @param P_i

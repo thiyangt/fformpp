@@ -1,7 +1,6 @@
 ##' Calculate the variance for the prior of coefficients (beta) in the moving knots model
 ##'
 ##' <details>
-##' @title
 ##' @param diag.K "matrix" diagonal part of the matrix K
 ##' @param Sigma "matrix" variance for the error term
 ##' @param P.mats

@@ -6,12 +6,18 @@
 \usage{
 vech2m(vech, diag = TRUE)
 }
+\value{
+
+}
 \description{
 Convert from the vech vector to the full matrix.
 }
 \note{
 Created: Wed Oct 12 20:23:17 CEST 2011;
     Current: Sun Mar 18 17:07:11 CET 2012.
+}
+\references{
+
 }
 \author{
 Feng Li, Department of Statistics, Stockholm University, Sweden.

@@ -11,6 +11,9 @@ d \%d*\% M
 
 \item{M}{"matrix" Dense matrix that is conformable to matrix diag(d).}
 }
+\value{
+
+}
 \description{
 Fast matrix algebra with diagonal matrices.
 }
@@ -18,6 +21,9 @@ Fast matrix algebra with diagonal matrices.
 First version: Tue Nov 09 11:12:05 CET 2010;
       Current:       Sat Oct 04 17:38:57 CST 2014.
 Thanks for Bertil's naming
+}
+\references{
+
 }
 \author{
 Feng Li, Department of Statistics, Stockholm University, Sweden.

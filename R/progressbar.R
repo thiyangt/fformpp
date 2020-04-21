@@ -2,7 +2,6 @@
 ##'
 ##' Call this function within for loop. Not work with while loop
 ##' Have not test with windows Gui
-##' @title
 ##' @param iIter
 ##' @param nIter
 ##' @return

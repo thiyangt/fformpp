@@ -9,8 +9,6 @@
 ##' Description
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param ... Input with respect to different methods.
 ##' @param method "character"
 ##' @return "character" "ok": the knots are at good position. "bad": bad knots locations.

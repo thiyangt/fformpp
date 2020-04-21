@@ -1,7 +1,6 @@
 ##' set the prior variance of the knots.
 ##'
 ##' <details>
-##' @title
 ##' @param x
 ##' @param splineArgs
 ##' @return

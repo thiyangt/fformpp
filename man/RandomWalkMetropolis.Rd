@@ -4,8 +4,20 @@
 \alias{RandomWalkMetropolis}
 \title{Random Walk Metropolis}
 \usage{
-RandomWalkMetropolis(param.cur, logpost.fun.name, Params, Y, x0, callParam,
-  splineArgs, priorArgs, Params_Transform)
+RandomWalkMetropolis(
+  param.cur,
+  logpost.fun.name,
+  Params,
+  Y,
+  x0,
+  callParam,
+  splineArgs,
+  priorArgs,
+  Params_Transform
+)
+}
+\value{
+
 }
 \description{
 Random walk Metropolis algorithm.

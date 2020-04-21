@@ -1,7 +1,7 @@
 ##' Diagnosis if the spline model
 ##'
 ##' This function is only applied to the moving knots model.
-##' @title
+##' @title Diagnosis if the spline model
 ##' @param criterion
 ##' @param OUT.Params
 ##' @return

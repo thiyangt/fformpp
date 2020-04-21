@@ -1,7 +1,6 @@
 ##' A simple sequence generater
 ##'
 ##' mainly used in the gradient part
-##' @title
 ##' @param init.seq "vecter" the initial sequence without zero
 ##' @param init.length "vecter" initial circle length,  including zeros
 ##' @param length.out "integer" how many circles to be generated

@@ -1,8 +1,6 @@
 ##' The Main file for Metropolis–Hastings algorithm
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param param.cur
 ##' @param gradhess.fun.name
 ##' @param logpost.fun.name

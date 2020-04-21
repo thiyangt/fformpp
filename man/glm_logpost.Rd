@@ -4,8 +4,7 @@
 \alias{glm_logpost}
 \title{The conditional and joint log posterior function}
 \usage{
-glm_logpost(Y, x, Params, callParam, splineArgs, priorArgs,
-  Params_Transform)
+glm_logpost(Y, x, Params, callParam, splineArgs, priorArgs, Params_Transform)
 }
 \arguments{
 \item{Params}{Params$xi:
@@ -42,6 +41,9 @@ Details.
 \note{
 First version: Sat Nov 06 22:23:57 CET 2010;
       Current:       Wed Dec 29 15:55:51 CET 2010.
+}
+\references{
+
 }
 \author{
 Feng Li, Department of Statistics, Stockholm University, Sweden.

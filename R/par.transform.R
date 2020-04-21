@@ -1,8 +1,6 @@
 ##' Description
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param par
 ##' @param method
 ##' @return

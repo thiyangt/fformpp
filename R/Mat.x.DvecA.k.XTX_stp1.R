@@ -2,7 +2,6 @@
 ##' K_qi,qi)
 ##'
 ##' Part 1.
-##' @title
 ##' @param Mat "Matrix"
 ##' @param A "Matrix"
 ##' @return "Matrix"

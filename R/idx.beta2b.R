@@ -1,7 +1,6 @@
 ##' Convert indices from beta to b
 ##'
 ##' <details>
-##' @title
 ##' @param p
 ##' @param q
 ##' @param q.i

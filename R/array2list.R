@@ -1,7 +1,7 @@
 #' Convert an array(or matrix) to a list
 #'
 #' Also works with matrix.
-#' @title
+#' @title Convert an array(or matrix) to a list
 #' @param X "array"
 #' @param MARGIN "integer"
 #' @return "list"

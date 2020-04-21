@@ -1,7 +1,6 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
 ##' @param Mat "matrix" Sigma4beta.tilde
 ##' @param A
 ##' @param delta.knots

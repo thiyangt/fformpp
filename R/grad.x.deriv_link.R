@@ -1,7 +1,6 @@
 ##' D[vecf(g(x)]/D[vecg(x)'] %*% D[vec g(x)]/D[vec x']
 ##'
 ##' Just the chain rule
-##' @title
 ##' @param grad "matrix" gradient
 ##' @param Param
 ##' @param link

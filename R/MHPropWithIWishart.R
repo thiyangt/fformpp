@@ -1,8 +1,6 @@
 ##' Random walk Metropolis–Hastings algorithm for Sigma
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param param.cur
 ##' @param logpost.fun.name
 ##' @param Params

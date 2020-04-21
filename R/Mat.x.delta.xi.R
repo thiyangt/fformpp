@@ -1,7 +1,6 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
 ##' @param Mat
 ##' @param delta.knots
 ##' @param n

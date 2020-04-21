@@ -1,8 +1,6 @@
 ##' This is the LPDS
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param Y
 ##' @param x
 ##' @param logpost.fun.name

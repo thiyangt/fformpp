@@ -1,7 +1,6 @@
 ##' Print object.size
 ##'
 ##' <details>
-##' @title
 ##' @param x
 ##' @param unit
 ##' @return

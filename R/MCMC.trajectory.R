@@ -1,8 +1,6 @@
 ##' Trajectory MCMC.
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param ...
 ##' @param interval e.g. 10%
 ##' @return

@@ -1,7 +1,6 @@
 ##' Organize the subsets of the parameters by taking away the fixed parameters.
 ##'
 ##' <details>
-##' @title
 ##' @param p
 ##' @param splineArgs
 ##' @param Params_Fixed

@@ -1,7 +1,6 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
 ##' @param Mat "matrix"
 ##' @param X_i "matrix" the matrix used for obtaining P_i matrix
 ##' @param delta_i "matrix" the matrix for the gradient

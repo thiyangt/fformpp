@@ -1,7 +1,6 @@
 ##' Convert list of knots into a n-by-1 matrix.
 ##'
 ##' Converted byrow by default.
-##' @title
 ##' @param knots.list List
 ##' @param byrow "logical"
 ##' @return Matrix

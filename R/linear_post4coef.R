@@ -1,23 +1,18 @@
-##' Direct sample the coefficients from normal distribution.
-##'
-##' <details>
-##' @title
-##' @param Y
-##' @param x
-##' @param OUT.Params
-##' @param crossvalid.struc
-##' @param nCross
-##' @param nIter
-##' @param splineArgs
-##' @param priorArgs
-##' @param Params_Transform
-##' @return
-##' @references
-##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
-##' @note First version: Fri Mar 04 20:21:33 CET 2011;
-##'       Current:       Fri Mar 04 20:21:41 CET 2011.
-##' TODO: Use apply?
-##' @export
+#' Direct sample the coefficients from normal distribution.
+#'
+#' Details are available from the paper.
+#' @param Y NA
+#' @param x0 NA
+#' @param OUT.Params NA
+#' @param crossvalid.struc NA
+#' @param nCross NA
+#' @param nIter NA
+#' @param splineArgs NA
+#' @param priorArgs NA
+#' @param Params_Transform NA
+#' @return NA
+#' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
+#' @export
 linear_post4coef <- function(Y, x0, OUT.Params, crossvalid.struc, nCross, nIter,
                              splineArgs, priorArgs, Params_Transform)
 {
@@ -60,7 +55,7 @@ linear_post4coef <- function(Y, x0, OUT.Params, crossvalid.struc, nCross, nIter,
                 q = dim(X)[2] # total covariates in design matrix
                 q.knots <- sapply(knots.list, nrow)
                 q.i <- c(q - sum(q.knots), q.knots) # size for X_0(with/without intercept), X_s,  X_a
-                                        # q <- sum(q.i)
+                # q <- sum(q.i)
                 p <- dim(Sigma)[1]
 
                 P4X <- crossprod(X)
@@ -82,7 +77,7 @@ linear_post4coef <- function(Y, x0, OUT.Params, crossvalid.struc, nCross, nIter,
                 XT.Y.Sigma.inv <- crossprod(X, Y.Sigma.inv)
 
                 beta.tilde <- Sigma4beta.tilde %*% (matrix(XT.Y.Sigma.inv) +
-                                                    Sigma4beta.tilde.inv %*% mu)
+                                                        Sigma4beta.tilde.inv %*% mu)
 
                 ## Sigma4beta.tilde should be symmetric. But might be not numerically after 1e-5
                 Norm.Sigma <- (Sigma4beta.tilde + t(Sigma4beta.tilde))/2

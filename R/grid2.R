@@ -1,7 +1,6 @@
 ##' Add grids on plot
 ##'
 ##' Better than grid() function
-##' @title
 ##' @param x.at
 ##' @param y.at
 ##' @param col

@@ -4,8 +4,18 @@
 \alias{SGLD}
 \title{Stochastic MCMC using Stochastic gradient Langevin dynamics}
 \usage{
-SGLD(param.cur, logpost.fun.name, Params, Y, x0, callParam, splineArgs,
-  priorArgs, algArgs, Params_Transform)
+SGLD(
+  param.cur,
+  logpost.fun.name,
+  Params,
+  Y,
+  x0,
+  callParam,
+  splineArgs,
+  priorArgs,
+  algArgs,
+  Params_Transform
+)
 }
 \arguments{
 \item{param.cur}{NA}

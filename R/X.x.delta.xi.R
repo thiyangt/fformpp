@@ -1,8 +1,6 @@
 ##' Preform X multiply Dev xi
 ##'
 ##' <details>
-##' @title
-##' @return
 ##' @references
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
 ##' @note First version: Thu Feb 10 11:09:46 CET 2011;

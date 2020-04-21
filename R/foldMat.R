@@ -1,7 +1,6 @@
 ##' Fold a matrix
 ##'
 ##' <details>
-##' @title
 ##' @param Mat
 ##' @param nfolds
 ##' @param byrow

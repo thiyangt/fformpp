@@ -5,8 +5,14 @@
 \alias{DGP.hwang}
 \title{DATA GENERATING PROCESSES}
 \usage{
-DGP.hwang(n, q, Sigma, model, otherArgs = list(seed = NA, nTesting = NA),
-  PlotData)
+DGP.hwang(
+  n,
+  q,
+  Sigma,
+  model,
+  otherArgs = list(seed = NA, nTesting = NA),
+  PlotData
+)
 }
 \arguments{
 \item{n}{"numeric".

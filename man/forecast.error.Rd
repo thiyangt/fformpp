@@ -4,7 +4,8 @@
 \name{forecast.error}
 \alias{forecast.error}
 \title{forecast.error}
-\format{A data frame with 645 rows with 7 variables
+\format{
+A data frame with 645 rows with 7 variables
 \describe{
 \item{ets}{ets algorithm in the forecast package}
 \item{arima}{auto.arima algorithm in the forecast package}
@@ -13,7 +14,8 @@
 \item{wn}{white noise process}
 \item{theta}{theta approach}
 \item{nn}{neural network approach}
-}}
+}
+}
 \usage{
 forecast.error
 }

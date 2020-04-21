@@ -1,8 +1,6 @@
 ##' Calculate the posterior df and location matrix V from the inverse Wishart distribution.
 ##'
 ##' <details>
-##' @title
-##' @return
 ##' @references
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
 ##' @note First version: Tue Feb 22 19:49:35 CET 2011;

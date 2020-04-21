@@ -5,8 +5,16 @@
 \title{Gradient and Hessian matrix for the "marginal posterior" for knots in the
        linear model.}
 \usage{
-linear_gradhess(Params, hessMethod, Y, x0, callParam, splineArgs,
-  priorArgs, Params_Transform)
+linear_gradhess(
+  Params,
+  hessMethod,
+  Y,
+  x0,
+  callParam,
+  splineArgs,
+  priorArgs,
+  Params_Transform
+)
 }
 \arguments{
 \item{Params}{"list". Contains the matrices for the parameters.

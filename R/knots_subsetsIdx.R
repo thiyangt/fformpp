@@ -1,8 +1,6 @@
 ##' This function is to find the locations of subsets in the knots matrix
 ##'
 ##'
-##' @name
-##' @title
 ##' @param knots.subsets "list"
 ##' @param k "integer"
 ##'         No. of knots in the knots matrix.

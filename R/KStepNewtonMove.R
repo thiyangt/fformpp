@@ -1,8 +1,6 @@
 ##' This is the simple Newton move for spline models without dimession changes.
 ##'
 ##'
-##' @name
-##' @title
 ##' @param param.cur "matrix".
 ##'         The initial values for the Newton update.
 ##' @param gradhess.fun.name

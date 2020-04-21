@@ -1,8 +1,6 @@
 ##' Same as expand.grid function but return a matrix.
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param x1
 ##' @param x2
 ##' @return

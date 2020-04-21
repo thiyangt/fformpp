@@ -4,8 +4,14 @@
 \alias{MVStocks}
 \title{Multivariate Variables for Stocks}
 \usage{
-MVStocks(from, to, stocks = c("^SML", "^OEX"), StdDataMethod,
-  save2diskPath, ...)
+MVStocks(
+  from,
+  to,
+  stocks = c("^SML", "^OEX"),
+  StdDataMethod,
+  save2diskPath,
+  ...
+)
 }
 \arguments{
 \item{from}{integer format as YYYYMMDD}

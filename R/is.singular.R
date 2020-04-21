@@ -1,7 +1,6 @@
 ##' Check if a square matrix is computational singular
 ##'
 ##' <details>
-##' @title
 ##' @param X
 ##' @return
 ##' @references

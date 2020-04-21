@@ -1,7 +1,6 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
 ##' @param a
 ##' @param B
 ##' @param Sigma

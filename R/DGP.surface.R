@@ -1,12 +1,11 @@
 ##' DGP Surface nested
 ##'
 ##' A DGP process where the true model nests in the fitted model
-##' @title
+##' @title A DGP process where the true model nests in the fitted model
 ##' @return
 ##' @references
 ##' @author Feng Li, Department of Statistics, Stockholm University, Sweden.
-##' @note First version: Mon Apr 11 09:18:38 CEST 2011;
-##'       Current:       Tue Jul 31 08:54:18 CEST 2012.
+##' @note First version: Mon Apr 11 09:18:38 CEST 2011;Current:       Tue Jul 31 08:54:18 CEST 2012.
 ##' @param n
 ##' @param p
 ##' @param q.o
@@ -191,18 +190,3 @@ DGP.surface <- function(n, p, q.o, q.s, Sigma, splineArgs, splineArgs.crl,
 
     return(out)
   }
-
-##----------------------------------------------------------------------------------------
-## TESTS:
-##----------------------------------------------------------------------------------------
-## n <- 200
-## p <- 1
-## q.o <- 4
-## q.s <- 5
-
-## splineArgs <- list(comp = c("intercept", "covariates", "thinplate.s"), # the
-##                                         # components of the design matrix.
-##                    thinplate.s.dim = c(q.s, q.o), # the dimension of the knots for surface.
-##                    thinplate.a.locate = c(0, 0, 0, 0)) # no. of knots used in each
-##                                         # covariates for the additive part. zero means no
-##                                         # knots for that covariates

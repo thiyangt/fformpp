@@ -1,8 +1,6 @@
 ##' Convert the parameters corresponding to different transformations
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param mean
 ##' @param var
 ##' @return

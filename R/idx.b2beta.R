@@ -1,7 +1,6 @@
 ##' Make indices from b to beta.
 ##'
 ##' <details>
-##' @title
 ##' @param p
 ##' @param q
 ##' @param q.i

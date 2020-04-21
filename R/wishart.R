@@ -1,8 +1,6 @@
 ##' Description
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param nu
 ##' @param V
 ##' @return
@@ -48,8 +46,6 @@ rwishart <- function(nu,V)
 ##' Description
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param df
 ##' @param V
 ##' @return
@@ -66,8 +62,6 @@ riwishart <- function(df, V)
 ##' ##' Density for the inverse wishart distribution
 ##'
 ##' Details.
-##' @name
-##' @title
 ##' @param X
 ##' @param df
 ##' @param V Location matrix

@@ -174,7 +174,9 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
 
     ## CROSS-VALIDATION
     crossValidArgs <- list(N.subsets = 5, # No. of folds. If 0:, no cross-validation.
-                           partiMethod = "systematic" # How to partition the data
+                           partiMethod = "systematic",
+                           # How to partition the data
+                           full.run = FALSE# How to partition the data
     )
 
     algArgs = list(knots = list(minibatchProp = 0.1, nEpoch= 2, calMHAccRate = FALSE, # Welling & Teh (2011), p 3.

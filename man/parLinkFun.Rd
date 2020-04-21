@@ -19,6 +19,9 @@ Transform the mean function in the GLM framework.
 Created: Thu May 10 13:09:08 CEST 2012;
       Current: Thu May 10 13:09:14 CEST 2012.
 }
+\references{
+
+}
 \author{
 Feng Li, Department of Statistics, Stockholm University, Sweden.
 }

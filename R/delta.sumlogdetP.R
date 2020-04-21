@@ -1,7 +1,6 @@
 ##' <description>
 ##'
 ##' <details>
-##' @title
 ##' @param P.mats
 ##' @param q.i
 ##' @param X.delta.knots.lst

@@ -1,7 +1,6 @@
 ##' gradient for \sum q_i log|K_i|
 ##'
 ##'
-##' @title
 ##' @param q.i
 ##' @param diag.K
 ##' @param args "list" args$subset: the subsets of the diagonal K matrix.
