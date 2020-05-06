@@ -4,9 +4,7 @@
 \name{forecast.error.m1}
 \alias{forecast.error.m1}
 \title{forecast.error.m1}
-\format{
-dataframe features calculated on M1 competition data
-}
+\format{dataframe features calculated on M1 competition data}
 \usage{
 forecast.error.m1
 }

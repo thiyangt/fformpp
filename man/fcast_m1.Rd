@@ -4,9 +4,7 @@
 \name{fcast_m1}
 \alias{fcast_m1}
 \title{fcast_m1}
-\format{
-list
-}
+\format{list}
 \usage{
 fcast_m1
 }

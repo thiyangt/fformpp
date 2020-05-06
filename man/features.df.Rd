@@ -4,9 +4,7 @@
 \name{features.df}
 \alias{features.df}
 \title{features.df}
-\format{
-A data frame with 645 rows and 25 variables
-}
+\format{A data frame with 645 rows and 25 variables}
 \usage{
 features.df
 }
