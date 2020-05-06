@@ -25,11 +25,9 @@ Imports:
         Matrix,
         mvtnorm,
         tidyverse,
-        seer,
-        movingknots,
-        flutils
+        seer
 Remotes: robjhyndman/tsfeatures,
          thiyangt/seer
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 LazyDate: true

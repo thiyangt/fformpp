@@ -4,7 +4,9 @@
 \name{features.df.m1}
 \alias{features.df.m1}
 \title{features.df.m1}
-\format{dataframe features calculated on M1 competition data}
+\format{
+dataframe features calculated on M1 competition data
+}
 \usage{
 features.df.m1
 }

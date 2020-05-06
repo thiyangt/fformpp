@@ -4,8 +4,14 @@
 \alias{individual_forecast}
 \title{Function to generate forecasts from minimum error}
 \usage{
-individual_forecast(predicted, accmat = NULL, real.error = NULL,
-  tslist = TRUE, forecast_list = NULL, h = NULL)
+individual_forecast(
+  predicted,
+  accmat = NULL,
+  real.error = NULL,
+  tslist = TRUE,
+  forecast_list = NULL,
+  h = NULL
+)
 }
 \arguments{
 \item{predicted}{predicted forecast errors from predict_fformpp}
