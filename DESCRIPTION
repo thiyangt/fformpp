@@ -26,8 +26,6 @@ Imports:
         mvtnorm,
         tidyverse,
         seer
-Remotes: robjhyndman/tsfeatures,
-         thiyangt/seer
 Encoding: UTF-8
 RoxygenNote: 7.1.0
 LazyDate: true
