@@ -84,7 +84,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## The split argument is only used when surface and additive subsets are of the
   ## same length
 
-  if(knot.moving.algorithm=="KStepNewton"){
+  if(knot.moving.algorithm=="KStepNewton"|knot.moving.algorithm=="SGLD"){
     Params_subsetsArgs <- list(
       "knots" = list(thinplate.s = list(N.subsets = 1, partiMethod = "systematic"),
                      thinplate.a = list(N.subsets = 1, partiMethod = "systematic"), split = FALSE),
@@ -125,10 +125,17 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
                       "coefficients" = NA)
 
   ## Propose method in Metropolis-Hasting
-  propMethods <- list("knots" = knot.moving.algorithm,
+  if(knot.moving.algorithm=="Random-Walk"){
+  propMethods <- list("knots" = "Random-Walk",
                       "shrinkages" = "KStepNewton",
                       "covariance" = "Inverse-Wishart", # random MH without K-step Newton
-                      "coefficients" = NA)
+                      "coefficients" = NA) }
+  if(knot.moving.algorithm=="SGLD"){
+    propMethods <- list("knots" = "SGLD",
+                        "shrinkages" = "SGLD",
+                        "covariance" = "Inverse-Wishart", # random MH without K-step Newton
+                        "coefficients" = NA) }
+
 
   ##----------------------------------------------------------------------------------------
   ## MCMC configurations
@@ -140,11 +147,12 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## BURN-IN
   burn.in <- 0.2  # [0, 1) If 0: use all MCMC results.
 
+  if(knot.moving.algorithm=="Random-Walk"){
   ## LPDS SAMPLE SIZE
   LPDS.sampleProp <- 0.05 # Sample proportion to the total posterior after burn-in.
 
   ## CROSS-VALIDATION
-  cross.validation <- list(N.subsets = 0, # No. of folds. If 0:, no cross-validation.
+  crossValidArgs <- list(N.subsets = 0, # No. of folds. If 0:, no cross-validation.
                            partiMethod = "systematic", # How to partition the data
                            full.run = FALSE)     # Also include a full run.
 
@@ -158,7 +166,31 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   MH.prop.df <- list("knots" = 5,
                      "shrinkages" = 5,
                      "covariance" = NA,
-                     "coefficients" = NA)
+                     "coefficients" = NA)}
+
+  if(knot.moving.algorithm=="SGLD"){
+    ## LPDS SAMPLE SIZE
+    LPDS.sampleProp <- 1 # Sample proportion to the total posterior after burn-in.
+
+    ## CROSS-VALIDATION
+    crossValidArgs <- list(N.subsets = 5, # No. of folds. If 0:, no cross-validation.
+                           partiMethod = "systematic" # How to partition the data
+    )
+
+    algArgs = list(knots = list(minibatchProp = 0.1, nEpoch= 2, calMHAccRate = FALSE, # Welling & Teh (2011), p 3.
+                                stepsizeSeq = make_stepsize(
+                                  steprange = c(0.01, 0.0001), n = 20 * nIter, # Welling & Teh (2011), p 5.
+                                  args = list(method = "exp-decay", lambda = 0.55))),
+                   shrinkages = list(minibatchProp = 0.1, nEpoch= 2, calMHAccRate = FALSE,
+                                     stepsizeSeq = make_stepsize(
+                                       steprange = c(0.01, 0.0001), n = 20 * nIter,
+                                       args = list(method = "exp-decay", lambda = 0.45))),
+                   covariance = NA,
+                   coefficients = NA)
+    nInner = 20 # 1/minibatchProp * nEpoch
+  }
+
+
   ##----------------------------------------------------------------------------------------
   ## Set up Priors
   ##----------------------------------------------------------------------------------------
@@ -167,9 +199,9 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## "identity". Write a general function to handle this.
 
   ## Regression
-  knots.location.gen <- flutils::make.knots(x = x, method = "k-means", splineArgs)
+  knots.location.gen <- fformpp::make.knots(x = x, method = "k-means", splineArgs)
 
-  X.init <- flutils::d.matrix(x, knots = knots.location.gen, splineArgs)
+  X.init <- fformpp::d.matrix(x, knots = knots.location.gen, splineArgs)
   lm.init <- stats::lm(Y~0+X.init)
   S0.init <- matrix(stats::var(lm.init$residual), p, p)
   q <- dim(X.init)[2]
@@ -189,8 +221,8 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
 
   ## PRIOR FOR KNOTS
   knots.priType <- "mvnorm"
-  knots.mu0 <- movingknots::knots_list2mat(knots.location.gen) # mean from k-means
-  knots.Sigma0 <- movingknots::make.knotsPriVar(x, splineArgs) # the covariance for each knots came from x'x
+  knots.mu0 <- knots_list2mat(knots.location.gen) # mean from k-means
+  knots.Sigma0 <- make.knotsPriVar(x, splineArgs) # the covariance for each knots came from x'x
   knots.c <- prior.knots # The shrinkage
 
   ## PRIOR FOR SHRINKAGES
@@ -198,7 +230,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## how many components does the model have
   model.comp.len <- length(splineArgs[["comp"]][ "intercept" != splineArgs[["comp"]] ])
   # how many components does the model have
-  shrinkages.pri.trans <- movingknots::convert.densParams(mean = n/2, var = (n/2)^2, linkage =
+  shrinkages.pri.trans <- convert.densParams(mean = n/2, var = (n/2)^2, linkage =
                                                Params_Transform[["shrinkages"]]) # assume
   # normal prior with "mean" and "var"
   shrinkages.priType <- "mvnorm"
@@ -264,7 +296,7 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ## The training($training) and testing($testing) structure.
   ## If no cross-validation, $training is also $testing.
   ## If full run is required, the last list in $training and $testing is for a full run.
-  crossvalid.struc <<- flutils::set.crossvalid(nObs = n, crossValidArgs = cross.validation)
+  crossvalid.struc <<- fformpp::set.crossvalid(nObs = n, crossValidArgs = crossValidArgs)
 
   ## No. of total runs
   nCross <<- length(crossvalid.struc$training)
@@ -273,13 +305,13 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   nTraining <- unlist(lapply(crossvalid.struc$training, length))
 
   ## Params
-  Params <- list("knots" = movingknots::knots_list2mat(INIT.knots),
+  Params <- list("knots" = fformpp::knots_list2mat(INIT.knots),
                  "shrinkages" = INIT.shrinkages,
-                 "covariance" = flutils::vech(INIT.covariance),
+                 "covariance" = fformpp::vech(INIT.covariance),
                  "coefficients" = matrix(NA, q, p))
 
   ## The parameters subset structures.
-  Params.sub.struc <- movingknots::Params.subsets(p, splineArgs, Params_Fixed, Params_subsetsArgs)
+  Params.sub.struc <- Params.subsets(p, splineArgs, Params_Fixed, Params_subsetsArgs)
 
   ##----------------------------------------------------------------------------------------
   ## Construct the output formats
@@ -294,12 +326,12 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
                              Params.sub.struc, SIMPLIFY = FALSE)
 
   ## Parameters updates in each MH step
-  INIT.knots.mat <- movingknots::knots_list2mat(INIT.knots)
+  INIT.knots.mat <- knots_list2mat(INIT.knots)
 
   OUT.Params <- list("knots" = array(INIT.knots.mat, c(length(INIT.knots.mat), 1, nIter, nCross)),
                      "shrinkages" = array(INIT.shrinkages, c(p*model.comp.len, 1, nIter, nCross)),
                      "coefficients" = array(NA, c(q, p, nIter, nCross)),
-                     "covariance" = array(flutils::vech(INIT.covariance), c((p+1)*p/2, 1, nIter, nCross)))
+                     "covariance" = array(fformpp::vech(INIT.covariance), c((p+1)*p/2, 1, nIter, nCross)))
 
   ##########################################################################################
   ##                                 Testings
@@ -318,7 +350,8 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
   ##----------------------------------------------------------------------------------------
   ## MovingKnots MCMC
   ##----------------------------------------------------------------------------------------
-  OUT.FITTED <- movingknots::MovingKnots_MCMC(gradhess.fun.name = gradhess.fun.name,
+  if(knot.moving.algorithm=="Random-Walk"){
+  OUT.FITTED <- MovingKnots_MCMC_rw(gradhess.fun.name = gradhess.fun.name,
                                  logpost.fun.name =  logpost.fun.name,
                                  nNewtonSteps =  nNewtonSteps,
                                  nIter = nIter,
@@ -338,7 +371,28 @@ fit_fformpp <- function(feamat, accmat, sknots=2, aknots=2,
                                  OUT.accept.probs = OUT.accept.probs,
                                  burn.in = burn.in,
                                  LPDS.sampleProp = LPDS.sampleProp,
-                                 track.MCMC = track.MCMC)
+                                 track.MCMC = track.MCMC)}
+
+  if(knot.moving.algorithm=="SGLD"){
+    OUT.FITTED <- MovingKnots_MCMC_sgld(gradhess.fun.name = gradhess.fun.name,
+                                                logpost.fun.name =  logpost.fun.name,
+                                                nIter = nIter,
+                                                Params = Params,
+                                                Params4Gibbs = Params4Gibbs,
+                                                Params.sub.struc =  Params.sub.struc,
+                                                Y = Y,
+                                                x0 = x,
+                                                splineArgs = splineArgs,
+                                                priorArgs = priorArgs,
+                                                algArgs = algArgs,
+                                                Params_Transform = Params_Transform,
+                                                propMethods = propMethods,
+                                                crossvalid.struc = crossvalid.struc,
+                                                OUT.Params = OUT.Params,
+                                                OUT.accept.probs = OUT.accept.probs,
+                                                burn.in = burn.in,
+                                                LPDS.sampleProp = LPDS.sampleProp,
+                                                track.MCMC = track.MCMC)}
 
   ##----------------------------------------------------------------------------------------
   ## Save outputs to files
