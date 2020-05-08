@@ -1,11 +1,8 @@
 Package: fformpp
 Type: Package
 Title: Feature-based FORecast Model Performance Prediction
-Version: 1.1.0
-Authors@R: c(
-    person("Thiyanga", "Talagala", email = "thiyanga.talagala@monash.edu", role = c("aut","cre")),
-    person("Feng", "Li", role = "aut"),
-    person("Yanfei", "Kang", role = "aut"))
+Version: 0.1.0
+Author: Whowroteit
 Maintainer: <thiyanga.talagala@monash.edu>
 Description: Feature-based time series forecasting using meta-learning.
 License: GPL-3
@@ -28,12 +25,7 @@ Imports:
         Matrix,
         mvtnorm,
         tidyverse,
-        mvtnorm,
-        parallel,
-        fGarch,
         seer
-Remotes: robjhyndman/tsfeatures,
-         thiyangt/seer
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 LazyDate: true

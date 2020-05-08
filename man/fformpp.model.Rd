@@ -4,7 +4,9 @@
 \name{fformpp.model}
 \alias{fformpp.model}
 \title{fformpp.model}
-\format{list containing fitted model and spline arguments}
+\format{
+list containing fitted model and spline arguments
+}
 \usage{
 fformpp.model
 }

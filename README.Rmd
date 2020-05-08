@@ -2,7 +2,8 @@
 output: github_document
 ---
 
-[![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) 
+[![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://travis-ci.org/thiyangt/fformpp.svg?branch=master)](https://travis-ci.org/thiyangt/fformpp.svg?branch=masterr)
+
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -21,6 +22,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
+The linked packages [flutils](https://github.com/feng-li/flutils) and [movingknots](https://github.com/feng-li/movingknots) should be installed prior to the installation of fformpp.
 
 ```r
 # install.packages("devtools")
@@ -30,14 +32,18 @@ library(fformpp)
 
 ## Usage
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE}
-library(fformpp)
-library(seer)
+### Following example illustrates how package functionalities work
+
+**Load packages**
+
+```{r}
 library(methods)
 library(MASS)
 library(Matrix)
-library(parallel)
 library(mvtnorm)
+library(flutils)
+library(fformpp)
+library(seer)
 ```
 
 **Load example dataset**
@@ -71,16 +77,16 @@ fformpp.model <- fit_fformpp(feamat=features_mat, accmat=forecast.error,
 
 ```{r}
 data("fformpp.model")
+data("forecast.error.m1")
 data("features.df.m1")
 predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=FALSE, final.estimate=median)
 head(predict.m1)
 ```
 
-**Generate findividual forecasts**
+**Generate forecast from the model with minimum forecast error**
 
 ```{r}
 library(Mcomp)
-data("forecast.error.m1")
 yearlym1 <- subset(M1, "yearly")
 data("fcast_m1")
 min.fcasterror <- individual_forecast(predicted=predict.m1, 
@@ -107,6 +113,3 @@ min.fcasterror.comb <- combination_forecast(predicted=predict.m1[1:2,],
                                       h=6, weights=FALSE, measure="mean")
 min.fcasterror.comb
 ```
-
-More about Efficient Bayesian Multivariate Regression: see the linked packages [flutils](https://github.com/feng-li/flutils) and [movingknots](https://github.com/feng-li/movingknots) 
-by [Feng Li](https://github.com/feng-li)

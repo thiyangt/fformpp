@@ -4,10 +4,21 @@
 \alias{fit_fformpp}
 \title{Function to fit Efficient Bayesian Surface Regression Models.}
 \usage{
-fit_fformpp(feamat, accmat, sknots = 2, aknots = 2, fix.s = 0,
-  fix.a = 0, fix.shrinkage, fix.covariance = 0, fix.coefficients = 0,
-  n.iter = 100, knot.moving.algorithm = "Random-Walk",
-  ptype = c("identity", "identity", "identity"), prior.knots)
+fit_fformpp(
+  feamat,
+  accmat,
+  sknots = 2,
+  aknots = 2,
+  fix.s = 0,
+  fix.a = 0,
+  fix.shrinkage,
+  fix.covariance = 0,
+  fix.coefficients = 0,
+  n.iter = 100,
+  knot.moving.algorithm = "Random-Walk",
+  ptype = c("identity", "identity", "identity"),
+  prior.knots
+)
 }
 \arguments{
 \item{feamat}{matrix of features, rows corresponds to each time series,
