@@ -75,6 +75,7 @@ MovingKnots_MCMC_rw <- function(gradhess.fun.name, logpost.fun.name, nNewtonStep
   ##----------------------------------------------------------------------------------------
   cat("Updating Coefficients >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n")
 
+
   OUT.Params <- linear_post4coef(Y, x0, OUT.Params, crossvalid.struc, nCross, nIter,
                                  splineArgs, priorArgs, Params_Transform)
 

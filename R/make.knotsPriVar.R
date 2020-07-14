@@ -12,9 +12,9 @@ make.knotsPriVar <- function(x, splineArgs)
     if("thinplate.s" %in% comp)
     {
         ks <- splineArgs$thinplate.s.dim[1]
-        ## out.comp[["thinplate.s"]] <- diag(ks) %x% xTx.inv
+         out.comp[["thinplate.s"]] <- diag(ks) %x% xTx.inv
 
-        out.comp[["thinplate.s"]] <- Diagonal(ks) %x% xTx.inv
+       ## out.comp[["thinplate.s"]] <- Diagonal(ks) %x% xTx.inv
     }
     if("thinplate.a" %in% comp)
     {
