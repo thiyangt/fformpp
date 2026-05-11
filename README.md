@@ -7,6 +7,13 @@
 fformpp
 =======
 
+Python port
+-----------
+
+An updated Python version of `fformpp` has been ported to the newly designed
+`movingknots` Python library. See <https://github.com/feng-li/movingknots> and use
+`movingknots.fformpp` for the current Python/JAX implementation.
+
 Installation
 ------------
 
